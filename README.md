@@ -25,7 +25,7 @@ operator configure scenarios and watch the model run, but never decides anything
 
 **Quick links:** [Milestone 1 report (PDF)](docs/milestones/milestone-1.pdf) ·
 [Design decisions](docs/decisions/) · [Development backlog](https://github.com/boacaandrei11/2in70group7/issues) ·
-[Questions for feedback](#8-points-for-feedback)
+[Questions for feedback](#9-points-for-feedback)
 
 > [!NOTE]
 > **Project status (Week 2):** design baseline. Milestone 1 is submitted; the Rhapsody
@@ -41,18 +41,19 @@ operator configure scenarios and watch the model run, but never decides anything
 2. [System context](#2-system-context)
 3. [Operational design domain](#3-operational-design-domain)
 4. [Stakeholders and conflicts](#4-stakeholders-and-conflicts)
-5. [Project plan](#5-project-plan)
-6. [Risks](#6-risks)
-7. [Team and way of working](#7-team-and-way-of-working)
-8. [Points for feedback](#8-points-for-feedback)
+5. [Requirements — WiP](#5-requirements--wip)
+6. [Project plan](#6-project-plan)
+7. [Risks](#7-risks)
+8. [Team and way of working](#8-team-and-way-of-working)
+9. [Points for feedback](#9-points-for-feedback)
 
 **Part B — Technical design** *(living section, grows as the model is built)*
 
-9. [Architectural principles](#9-architectural-principles)
-10. [Architecture](#10-architecture)
-11. [Behaviour](#11-behaviour)
-12. [Operator dashboard concept](#12-operator-dashboard-concept)
-13. [Repository](#13-repository)
+10. [Architectural principles](#10-architectural-principles)
+11. [Architecture](#11-architecture)
+12. [Behaviour](#12-behaviour)
+13. [Operator dashboard concept](#13-operator-dashboard-concept)
+14. [Repository](#14-repository)
 
 ---
 
@@ -161,9 +162,17 @@ Because the system of interest is a **simulation**, we separate *domain* stakeho
 
 ---
 
-## 5. Project plan
+## 5. Requirements — WiP
 
-### 5.1 Model structure (course SysML packages)
+Functional and non-functional requirements are being derived from the stakeholder
+concerns, conflicts and ODD above. They will be modelled in the Rhapsody
+`Requirements` package (course Week 2) and published here once reviewed.
+
+---
+
+## 6. Project plan
+
+### 6.1 Model structure (course SysML packages)
 
 ```
 SmartIntersection
@@ -174,7 +183,7 @@ SmartIntersection
 └── Verification    test cases traced to requirements · test harness
 ```
 
-### 5.2 Delivery gates
+### 6.2 Delivery gates
 
 Each gate must work before the next one starts. Status is updated as work lands.
 
@@ -188,7 +197,7 @@ Each gate must work before the next one starts. Status is updated as work lands.
 | **G6** Perception link | an idealized detection event triggers the right smart-vehicle transition | planned |
 | **G7** ML perception | a detector produces plausible detections; the model logs confidence and action | stretch |
 
-### 5.3 Alignment with the course
+### 6.3 Alignment with the course
 
 | Week | Course topic | Planned model content |
 |---|---|---|
@@ -205,7 +214,7 @@ The detailed backlog is tracked as [GitHub issues](https://github.com/boacaandre
 
 ---
 
-## 6. Risks
+## 7. Risks
 
 | ID | Risk | Likelihood | Impact | Mitigation |
 |---|---|---|---|---|
@@ -218,7 +227,7 @@ The detailed backlog is tracked as [GitHub issues](https://github.com/boacaandre
 
 ---
 
-## 7. Team and way of working
+## 8. Team and way of working
 
 | | |
 |---|---|
@@ -232,7 +241,7 @@ The detailed backlog is tracked as [GitHub issues](https://github.com/boacaandre
 
 ---
 
-## 8. Points for feedback
+## 9. Points for feedback
 
 We would appreciate the lecturer's view on these before we start implementing:
 
@@ -257,7 +266,7 @@ We would appreciate the lecturer's view on these before we start implementing:
 > This part describes the **intended** design. It is updated as each gate is completed;
 > anything not yet built is marked *planned* or *proposed*.
 
-## 9. Architectural principles
+## 10. Architectural principles
 
 | | Principle | Why |
 |---|---|---|
@@ -269,7 +278,7 @@ We would appreciate the lecturer's view on these before we start implementing:
 
 ---
 
-## 10. Architecture
+## 11. Architecture
 
 <p align="center"><img src="docs/diagrams/architecture.svg" alt="Runtime architecture: Rhapsody model, ports, Python dashboard, ML service" width="100%"></p>
 
@@ -288,7 +297,7 @@ snapshot. Messages are JSON over local UDP; the draft contract is in
 
 ---
 
-## 11. Behaviour
+## 12. Behaviour
 
 ### Traffic signal controller *(planned state machine)*
 
@@ -342,7 +351,7 @@ sequenceDiagram
 
 ---
 
-## 12. Operator dashboard concept
+## 13. Operator dashboard concept
 
 One Python application with three panels: **telemetry** (why the model does what it does),
 the **top-down map** (vehicles as rectangles, pedestrians as ✕), and **configuration**
@@ -356,7 +365,7 @@ machines run next to it.
 
 ---
 
-## 13. Repository
+## 14. Repository
 
 | Folder | Contents |
 |---|---|
