@@ -40,13 +40,16 @@ The report itself is written in Overleaf and is **not** stored here.
 
 ## Team and ownership
 
+Group 7: **Andrei Boaca**, **Cosmin Nan**.
+
+
 | Area | Owner |
 |------|-------|
 | Model: Requirements, Architecture | shared |
-| Model: TrafficControl, Pedestrians, Simulation | Member A *(fill in)* |
-| Model: Vehicles, V2X | Member B *(fill in)* |
-| `bridge/` + `protocol/` | Member B *(fill in)* |
-| `viz/` | Member A *(fill in)* |
+| Model: TrafficControl, Pedestrians, Simulation | Andrei Boaca |
+| Model: Vehicles, V2X | Cosmin Nan |
+| `bridge/` + `protocol/` | Cosmin Nan |
+| `viz/` | Andrei Boaca |
 | `tests/` | shared |
 
 Before editing a model package you don't own, tell the owner. Model files cannot be

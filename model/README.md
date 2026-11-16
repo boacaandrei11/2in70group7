@@ -20,11 +20,11 @@ Create the project here: **File → New → Project**, location `model/`, name
 |------------------|----------|-------|
 | `Requirements`   | Stakeholder needs, system requirements, ODD | shared |
 | `Architecture`   | System context, BDDs, IBDs, interfaces, ports | shared |
-| `TrafficControl` | Traffic light / phase controller, timing config + validation | A |
-| `Pedestrians`    | Pedestrian state machines, crossing requests | A |
-| `Simulation`     | Simulation controller, scenario manager, clock | A |
-| `Vehicles`       | Smart vehicle controller, kinematics, decision logic | B |
-| `V2X`            | V2I / V2V messages and manager | B |
+| `TrafficControl` | Traffic light / phase controller, timing config + validation | Andrei |
+| `Pedestrians`    | Pedestrian state machines, crossing requests | Andrei |
+| `Simulation`     | Simulation controller, scenario manager, clock | Andrei |
+| `Vehicles`       | Smart vehicle controller, kinematics, decision logic | Cosmin |
+| `V2X`            | V2I / V2V messages and manager | Cosmin |
 | `Verification`   | Test scenarios, traceability to requirements | shared |
 
 To make a package its own file: right-click the package → **Unit → Edit Unit** →
