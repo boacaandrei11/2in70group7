@@ -193,14 +193,35 @@ machines run next to it.
 
 ## 7. Stakeholders and conflicts
 
-| Stakeholder | Main concerns | Conflicts |
-|---|---|---|
-| Pedestrians, incl. vulnerable users | protected crossings, sufficient clearance time, predictable vehicles | C1, C2 |
-| Smart-vehicle users / developers | safe, understandable stop / yield / proceed decisions | C1, C4 |
-| Conventional drivers | unambiguous signals, predictable priorities, reasonable journey time | C1, C2 |
-| Road / traffic authority | valid signal plans, enforceable priorities, acceptable throughput | C2, C3 |
-| Scenario operator / researcher | change timing and demand, repeat and compare runs | C3 |
-| Model developers / verification | deterministic, inspectable behaviour; evidence that safety holds | C3, C4 |
+Because the system of interest is a **simulation**, we separate *domain* stakeholders
+(whose interests the model must represent correctly) from stakeholders of the
+*simulation itself* (who use, build or depend on it).
+
+| Group | Stakeholder | Main concerns | Measure / indicator | Priority | Conflicts |
+|---|---|---|---|---|---|
+| Domain | Pedestrians, incl. vulnerable users | protected crossing, sufficient clearance time, predictable vehicles | walk + clearance time, maximum waiting time, zero conflicting permissions | high | C1, C2 |
+| Domain | Smart-vehicle occupants | safe, smooth and understandable vehicle behaviour | no red-light violations, braking within limits, number of stops | high | C1 |
+| Domain | Conventional drivers | unambiguous signals, fair priority, reasonable delay | mean delay, queue length | medium | C1, C2 |
+| Domain | Road / traffic authority | valid signal plans, safe operation, acceptable throughput | no conflicting greens, vehicles per cycle | high | C2, C3 |
+| Simulation | Scenario operator / researcher | configure timing and demand, repeat and compare runs | identical traces for the same scenario and seed | medium | C3 |
+| Simulation | Smart-vehicle developers | clear perception → decision interface, testable decisions | perceived and true state logged, each decision traceable | medium | C4 |
+| Simulation | Course team (ourselves) — modelling, implementation and verification | deterministic, inspectable model; SysML compliance; traceability; manageable complexity; reliable demo | requirements traced to tests, test pass rate, model executes in Rhapsody | high | C3, C4 |
+
+**Considered and excluded from the baseline**
+
+| Stakeholder | Why excluded |
+|---|---|
+| Cyclists | not in the ODD road-user set (vehicles and pedestrians only) |
+| Emergency services | priority / pre-emption for emergency vehicles is excluded from the ODD |
+| Public transport operators | no bus or tram priority in the baseline signal plan |
+| Insurance companies | liability and risk assessment of real incidents; no real vehicles are involved |
+| Vehicle OEMs | no production vehicle software or hardware; the smart vehicle is a modelled agent |
+| Infrastructure manager | owns and maintains physical signal hardware, which is outside the software-only scope |
+| V2X / telecom network provider | no physical communication network; any V2I exchange would be simulated |
+| Police / traffic enforcement | enforcement of violations is not modelled; violations are only logged |
+| Local residents | noise, emissions and land use are not evaluated |
+
+**Conflicts between stakeholder concerns**
 
 | ID | Conflict | Consequence for the model |
 |---|---|---|
