@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1300 660" width="1300" height="660">
+  <style>
+    text { font-family: "Segoe UI", -apple-system, "Helvetica Neue", Arial, sans-serif; fill: #1e293b; }
+    .h  { font-size: 19px; font-weight: 700; }
+    .h2 { font-size: 15px; font-weight: 700; }
+    .s  { font-size: 13px; fill: #475569; }
+    .xs { font-size: 12px; fill: #475569; }
+    .lbl { font-size: 12.5px; fill: #334155; }
+    .stereo { font-size: 13px; fill: #0f766e; font-weight: 600; }
+    .chip { font-size: 13px; fill: #134e4a; }
+    .tag { font-size: 11px; font-weight: 700; letter-spacing: 0.08em; }
+  </style>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker>
+    <marker id="am" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b45309"/></marker>
+  </defs>
+
+  <rect x="1" y="1" width="1298" height="658" rx="14" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="30" y="40" class="tag" fill="#64748b" style="fill:#64748b">SYSTEM CONTEXT  ·  BLACK-BOX VIEW OF THE SYSTEM OF INTEREST</text>
+
+  <!-- Operator -->
+  <g>
+    <rect x="70" y="68" width="200" height="62" rx="10" fill="#f8fafc" stroke="#64748b" stroke-width="1.5"/>
+    <circle cx="100" cy="90" r="7" fill="none" stroke="#334155" stroke-width="1.8"/>
+    <path d="M100 97 v14 M90 103 h20 M100 111 l-7 10 M100 111 l7 10" stroke="#334155" stroke-width="1.8" fill="none"/>
+    <text x="122" y="95" class="h2">Scenario operator</text>
+    <text x="122" y="114" class="xs">human · «actor»</text>
+  </g>
+  <line x1="170" y1="130" x2="170" y2="176" stroke="#334155" stroke-width="1.8" marker-end="url(#a)"/>
+  <text x="180" y="158" class="lbl">operates</text>
+
+  <!-- Python dashboard -->
+  <g>
+    <rect x="40" y="180" width="270" height="300" rx="12" fill="#eff6ff" stroke="#2563eb" stroke-width="1.8"/>
+    <text x="60" y="210" class="tag" style="fill:#1d4ed8">EXTERNAL SYSTEM</text>
+    <text x="60" y="234" class="h2">Python dashboard</text>
+    <rect x="60" y="252" width="230" height="62" rx="8" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="75" y="276" class="h2" style="font-size:13.5px">Configuration</text>
+    <text x="75" y="298" class="xs">signal plan · demand · run control</text>
+    <rect x="60" y="322" width="230" height="62" rx="8" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="75" y="346" class="h2" style="font-size:13.5px">Telemetry</text>
+    <text x="75" y="368" class="xs">phase · agent states · metrics · events</text>
+    <rect x="60" y="392" width="230" height="62" rx="8" fill="#ffffff" stroke="#93c5fd"/>
+    <text x="75" y="416" class="h2" style="font-size:13.5px">Top-down map</text>
+    <text x="75" y="438" class="xs">lanes · signals · vehicles · pedestrians</text>
+  </g>
+
+  <!-- arrows dashboard <-> SOI -->
+  <line x1="312" y1="268" x2="468" y2="268" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="322" y="212" class="lbl" font-weight="600" style="font-weight:600">requests</text>
+  <text x="322" y="230" class="xs">scenario · signal plan</text>
+  <text x="322" y="246" class="xs">population · speeds</text>
+  <text x="322" y="262" class="xs">start · pause · reset</text>
+
+  <line x1="468" y1="396" x2="312" y2="396" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="322" y="418" class="lbl" style="font-weight:600">state &amp; results</text>
+  <text x="322" y="436" class="xs">accept / reject + reason</text>
+  <text x="322" y="452" class="xs">sim time · signal states</text>
+  <text x="322" y="468" class="xs">agent positions · events</text>
+
+  <!-- SOI -->
+  <g>
+    <rect x="470" y="120" width="380" height="420" rx="14" fill="#f0fdfa" stroke="#0f766e" stroke-width="3"/>
+    <text x="490" y="152" class="tag" style="fill:#0f766e">SYSTEM OF INTEREST  ·  RHAPSODY SYSML MODEL</text>
+    <text x="490" y="182" class="stereo">«block»</text>
+    <text x="545" y="183" class="h">SmartIntersectionCore</text>
+    <text x="490" y="208" class="s">Owns all authoritative traffic states and decisions.</text>
+    <line x1="490" y1="222" x2="830" y2="222" stroke="#99f6e4"/>
+    <g>
+      <rect x="490" y="238" width="340" height="38" rx="8" fill="#ccfbf1"/>
+      <text x="506" y="262" class="chip">Traffic signal controller · phases &amp; timing plans</text>
+      <rect x="490" y="284" width="340" height="38" rx="8" fill="#ccfbf1"/>
+      <text x="506" y="308" class="chip">Smart &amp; conventional vehicle agents</text>
+      <rect x="490" y="330" width="340" height="38" rx="8" fill="#ccfbf1"/>
+      <text x="506" y="354" class="chip">Pedestrian agents · crossing requests</text>
+      <rect x="490" y="376" width="340" height="38" rx="8" fill="#ccfbf1"/>
+      <text x="506" y="400" class="chip">Right-of-way &amp; movement rules</text>
+      <rect x="490" y="422" width="340" height="38" rx="8" fill="#ccfbf1"/>
+      <text x="506" y="446" class="chip">Simulation clock · run control</text>
+      <rect x="490" y="468" width="340" height="38" rx="8" fill="#ccfbf1"/>
+      <text x="506" y="492" class="chip">Scenario &amp; command validation</text>
+    </g>
+    <text x="490" y="528" class="xs">Vehicles and pedestrians are modelled agents inside.</text>
+  </g>
+
+  <!-- Harness -->
+  <g>
+    <rect x="1030" y="130" width="240" height="160" rx="12" fill="#f8fafc" stroke="#64748b" stroke-width="1.8"/>
+    <text x="1050" y="160" class="tag" style="fill:#475569">EXTERNAL SYSTEM</text>
+    <text x="1050" y="184" class="h2">Scenario / test harness</text>
+    <text x="1050" y="208" class="xs">repeatable scenarios and</text>
+    <text x="1050" y="224" class="xs">verification runs</text>
+    <text x="1050" y="256" class="xs" style="font-style:italic">used from a later milestone</text>
+  </g>
+  <line x1="1028" y1="206" x2="852" y2="206" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="866" y="178" class="xs">geometry · routes</text>
+  <text x="866" y="194" class="xs">stimuli · random seed</text>
+  <line x1="852" y1="262" x2="1028" y2="262" stroke="#334155" stroke-width="2" marker-end="url(#a)"/>
+  <text x="866" y="284" class="xs">traces · events · run IDs</text>
+
+  <!-- ML -->
+  <g>
+    <rect x="1030" y="340" width="240" height="170" rx="12" fill="#fffbeb" stroke="#b45309" stroke-width="1.8" stroke-dasharray="7 5"/>
+    <text x="1050" y="370" class="tag" style="fill:#b45309">PLANNED EXTENSION</text>
+    <text x="1050" y="394" class="h2">ML perception service</text>
+    <text x="1050" y="418" class="xs">object detector on camera-like</text>
+    <text x="1050" y="434" class="xs">images (not the symbolic map)</text>
+    <text x="1050" y="466" class="xs">+ its image source</text>
+  </g>
+  <line x1="1028" y1="408" x2="852" y2="408" stroke="#b45309" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#am)"/>
+  <text x="866" y="380" class="xs">detections: class</text>
+  <text x="866" y="396" class="xs">light state · confidence</text>
+  <line x1="852" y1="470" x2="1028" y2="470" stroke="#b45309" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#am)"/>
+  <text x="866" y="492" class="xs">ack · diagnostics</text>
+
+  <!-- out of scope -->
+  <rect x="40" y="574" width="1230" height="54" rx="10" fill="#f8fafc" stroke="#cbd5e1" stroke-dasharray="5 5"/>
+  <text x="62" y="606" class="s"><tspan style="font-weight:700;fill:#334155">Out of scope:</tspan> real road infrastructure, real vehicles and physical sensors. The operator acts only through the dashboard, never on model variables directly.</text>
+</svg>
