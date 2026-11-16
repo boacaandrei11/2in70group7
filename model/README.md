@@ -14,18 +14,44 @@ model/
 Create the project here: **File → New → Project**, location `model/`, name
 `SmartIntersection`, type SysML (or the course template), language C++.
 
-## Package structure (each package saved as a separate unit)
+## Package structure (course SysML structure, each package a separate unit)
 
-| Package          | Contents |
-|------------------|----------|
-| `Requirements`   | Stakeholder needs, system requirements, ODD |
-| `Architecture`   | System context, BDDs, IBDs, interfaces, ports |
-| `TrafficControl` | Traffic light / phase controller, timing config + validation |
-| `Pedestrians`    | Pedestrian state machines, crossing requests |
-| `Simulation`     | Simulation controller, scenario manager, clock |
-| `Vehicles`       | Smart vehicle controller, kinematics, decision logic |
-| `V2X`            | V2I / V2V messages and manager |
-| `Verification`   | Test scenarios, traceability to requirements |
+The five top-level packages follow the 2IN70 course template / SYSMOD approach.
+Sub-packages group the subsystems inside them.
+
+```
+SmartIntersection
+├── Requirements
+│   ├── StakeholderNeeds        concerns + conflicts C1–C4 (Milestone 1)
+│   ├── ODD                     operating assumptions as requirements
+│   ├── SystemRequirements      functional, with IDs (REQ-F-xx)
+│   └── SafetyRequirements      invariants T1–T5 (REQ-S-xx)
+├── UseCases
+│   ├── Actors                  Operator, PythonDashboard, ScenarioHarness, MLPerceptionService
+│   └── UseCaseDiagrams         configure scenario, run intersection, interpret observation,
+│                               inspect telemetry, evaluate test run
+├── Structure
+│   ├── Context                 SmartIntersectionCore (SOI) + context BDD
+│   ├── Signals                 TrafficSignalController (+ its state machine)
+│   ├── Agents                  VehicleAgent, SmartVehicle, ConventionalVehicle, PedestrianAgent
+│   ├── Simulation              SimulationController, ScenarioManager, IntersectionGeometry
+│   ├── Interfaces              TelemetryPort, CommandPort, PerceptionPort, events, interface blocks
+│   └── ValueTypes              units and types (m, s, m/s, SignalIndication, ...)
+├── Behaviour
+│   ├── Activities              decision logic, command validation, scenario initialisation
+│   └── Interactions            sequence diagrams (timing change, stop at red, crossing request)
+└── Verification
+    ├── TestCases               TC-xx traced to requirements
+    └── TestHarness             test-driver blocks / scenarios used for verification
+```
+
+**State machines:** in Rhapsody a statechart is owned by its block, so it appears
+under the block in `Structure`. `Behaviour` holds the activities and sequence
+diagrams that describe behaviour across blocks.
+
+**Code generation scope:** the component builds `Structure` only (plus anything
+in `Verification/TestHarness` when running tests). `Requirements`, `UseCases` and
+`Behaviour` are not code.
 
 To make a package its own file: right-click the package → **Unit → Edit Unit** →
 tick *Store in separate file*. Rhapsody does this by default for new packages in
