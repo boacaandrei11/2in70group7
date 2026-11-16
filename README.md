@@ -38,22 +38,16 @@ and sends requests; the Rhapsody model validates and applies them.
 
 The report itself is written in Overleaf and is **not** stored here.
 
-## Team and ownership
+## Team
 
 Group 7: **Andrei Boaca**, **Cosmin Nan**.
 
+Both members are currently responsible for all areas. Tasks will be split later
+via GitHub issue assignees, and this section updated then.
 
-| Area | Owner |
-|------|-------|
-| Model: Requirements, Architecture | shared |
-| Model: TrafficControl, Pedestrians, Simulation | Andrei Boaca |
-| Model: Vehicles, V2X | Cosmin Nan |
-| `bridge/` + `protocol/` | Cosmin Nan |
-| `viz/` | Andrei Boaca |
-| `tests/` | shared |
-
-Before editing a model package you don't own, tell the owner. Model files cannot be
-merged safely (see `model/README.md`).
+Before editing a model package, tell the other member which one. Model files cannot
+be merged safely, so only one person edits a given package at a time (see
+`model/README.md`).
 
 ## Working agreement
 

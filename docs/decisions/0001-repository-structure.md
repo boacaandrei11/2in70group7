@@ -14,7 +14,7 @@ reliably, and Rhapsody regenerates C++ code on every build.
   `tests/`, `docs/`.
 - Generated code and build output are not committed; components end in `Component`
   so their output folders are ignored.
-- Each model package is a separate unit file with one owner at a time; model files
+- Each model package is a separate unit file edited by one person at a time; model files
   are `binary` in `.gitattributes` so git never auto-merges them.
 - The C++/Python message format is defined once in `protocol/`.
 - The report stays in Overleaf; only submitted PDFs and diagram sources live here.
