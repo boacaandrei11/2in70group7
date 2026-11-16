@@ -164,10 +164,6 @@ Because the system of interest is a **simulation**, we separate *domain* stakeho
 
 ## 5. Requirements — WiP
 
-Functional and non-functional requirements are being derived from the stakeholder
-concerns, conflicts and ODD above. They will be modelled in the Rhapsody
-`Requirements` package (course Week 2) and published here once reviewed.
-
 ---
 
 ## 6. Project plan
