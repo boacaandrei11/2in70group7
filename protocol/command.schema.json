@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "smart-intersection/command.schema.json",
+  "title": "Visualization to simulation commands (draft v0.1)",
+  "description": "Requests only. The model validates every command and replies with an ack.",
+  "type": "object",
+  "required": ["v", "type", "cmd_id", "cmd"],
+  "properties": {
+    "v": { "const": 1 },
+    "type": { "const": "command" },
+    "cmd_id": { "type": "integer", "minimum": 0 },
+    "cmd": { "enum": ["SIM_CONTROL", "SET_TIMING", "SET_VEHICLE_SPEED", "LOAD_SCENARIO", "SET_OPTION"] },
+    "args": { "type": "object" }
+  },
+  "allOf": [
+    {
+      "if": { "properties": { "cmd": { "const": "SIM_CONTROL" } } },
+      "then": { "properties": { "args": {
+        "type": "object", "required": ["action"],
+        "properties": { "action": { "enum": ["START", "PAUSE", "RESUME", "RESET"] } }
+      } } }
+    },
+    {
+      "if": { "properties": { "cmd": { "const": "SET_TIMING" } } },
+      "then": { "properties": { "args": {
+        "type": "object",
+        "properties": {
+          "green": { "type": "number", "description": "s" },
+          "yellow": { "type": "number", "description": "s" },
+          "all_red": { "type": "number", "description": "s" },
+          "ped_walk": { "type": "number", "description": "s" }
+        }
+      } } }
+    },
+    {
+      "if": { "properties": { "cmd": { "const": "SET_VEHICLE_SPEED" } } },
+      "then": { "properties": { "args": {
+        "type": "object", "required": ["vehicle_id", "desired_speed"],
+        "properties": {
+          "vehicle_id": { "type": "integer" },
+          "desired_speed": { "type": "number", "description": "m/s" }
+        }
+      } } }
+    },
+    {
+      "if": { "properties": { "cmd": { "const": "LOAD_SCENARIO" } } },
+      "then": { "properties": { "args": {
+        "type": "object", "required": ["name"],
+        "properties": { "name": { "type": "string" } }
+      } } }
+    },
+    {
+      "if": { "properties": { "cmd": { "const": "SET_OPTION" } } },
+      "then": { "properties": { "args": {
+        "type": "object", "required": ["key", "value"],
+        "properties": {
+          "key": { "enum": ["V2X_ENABLED", "PERCEPTION_ENABLED", "COMM_DELAY_MS", "SIM_SPEED"] },
+          "value": {}
+        }
+      } } }
+    }
+  ]
+}

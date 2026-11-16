@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "smart-intersection/state.schema.json",
+  "title": "Simulation to visualization messages (draft v0.1)",
+  "oneOf": [
+    { "$ref": "#/$defs/state" },
+    { "$ref": "#/$defs/ack" }
+  ],
+  "$defs": {
+    "state": {
+      "type": "object",
+      "required": ["v", "type", "seq", "sim_time", "sim_status", "traffic_lights", "vehicles", "pedestrians"],
+      "properties": {
+        "v": { "const": 1 },
+        "type": { "const": "state" },
+        "seq": { "type": "integer", "minimum": 0, "description": "Increments every message; lets the viz detect loss/reordering" },
+        "sim_time": { "type": "number", "minimum": 0 },
+        "sim_status": { "enum": ["INITIALIZED", "RUNNING", "PAUSED", "STOPPED"] },
+        "scenario": { "type": "string" },
+        "phase": { "type": "string", "description": "Active signal phase name, e.g. NS_GREEN" },
+        "traffic_lights": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "approach", "state"],
+            "properties": {
+              "id": { "type": "integer" },
+              "approach": { "enum": ["N", "E", "S", "W"] },
+              "state": { "enum": ["RED", "YELLOW", "GREEN", "OFF"] },
+              "time_to_change": { "type": "number" }
+            }
+          }
+        },
+        "ped_signals": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "crossing", "state"],
+            "properties": {
+              "id": { "type": "integer" },
+              "crossing": { "enum": ["N", "E", "S", "W"] },
+              "state": { "enum": ["DONT_WALK", "WALK", "FLASHING"] }
+            }
+          }
+        },
+        "vehicles": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "x", "y", "heading", "speed", "state"],
+            "properties": {
+              "id": { "type": "integer" },
+              "x": { "type": "number" },
+              "y": { "type": "number" },
+              "heading": { "type": "number" },
+              "speed": { "type": "number" },
+              "accel": { "type": "number" },
+              "desired_speed": { "type": "number" },
+              "state": { "type": "string", "description": "Vehicle state machine state, e.g. APPROACHING, DECELERATING, STOPPED" },
+              "perceived_light": { "enum": ["RED", "YELLOW", "GREEN", "UNKNOWN"] },
+              "v2x_link": { "enum": ["OK", "DEGRADED", "LOST", "DISABLED"] },
+              "detections": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["kind", "id", "distance"],
+                  "properties": {
+                    "kind": { "enum": ["VEHICLE", "PEDESTRIAN", "TRAFFIC_LIGHT"] },
+                    "id": { "type": "integer" },
+                    "distance": { "type": "number" }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "pedestrians": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "x", "y", "state"],
+            "properties": {
+              "id": { "type": "integer" },
+              "x": { "type": "number" },
+              "y": { "type": "number" },
+              "state": { "type": "string", "description": "e.g. WAITING, REQUESTING, CROSSING, COMPLETED" }
+            }
+          }
+        },
+        "events": {
+          "type": "array",
+          "description": "Log lines produced since the previous message",
+          "items": {
+            "type": "object",
+            "required": ["t", "source", "msg"],
+            "properties": {
+              "t": { "type": "number" },
+              "source": { "type": "string" },
+              "level": { "enum": ["INFO", "WARN", "SAFETY"] },
+              "msg": { "type": "string" }
+            }
+          }
+        }
+      }
+    },
+    "ack": {
+      "type": "object",
+      "required": ["v", "type", "cmd_id", "accepted"],
+      "properties": {
+        "v": { "const": 1 },
+        "type": { "const": "ack" },
+        "cmd_id": { "type": "integer" },
+        "accepted": { "type": "boolean" },
+        "reason": { "type": "string" }
+      }
+    }
+  }
+}

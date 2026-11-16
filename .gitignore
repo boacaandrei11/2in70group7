@@ -1,0 +1,60 @@
+# ── Rhapsody ──────────────────────────────────────────────────────────────
+# Generated code and build output. Rhapsody writes it into a folder named after
+# the component (e.g. DefaultComponent/DefaultConfig/). Convention for this repo:
+# every Rhapsody component name ends in "Component".
+model/**/*Component/
+model/generated/
+
+# Backups, autosave, logs, per-user workspace layout
+model/**/*_bak*.rpyx
+model/**/*_auto_rpy/
+model/**/*.rpw
+model/**/*.ehl
+model/**/*.log
+model/**/*.~*
+# NOTE: verify these against the files Rhapsody 9.0 actually writes once the
+# project exists (run `git status` after the first save and adjust).
+
+# ── C++ / Visual Studio ───────────────────────────────────────────────────
+.vs/
+*.user
+*.suo
+*.sdf
+*.opensdf
+*.VC.db
+*.ipch
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+*.obj
+*.o
+*.pdb
+*.ilk
+*.exe
+*.dll
+*.lib
+*.exp
+*.idb
+*.tlog
+
+# ── Python ────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+*.egg-info/
+
+# ── Editors / OS ──────────────────────────────────────────────────────────
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# ── Large media (keep out of git) ─────────────────────────────────────────
+*.mp4
+*.mov
+*.avi
+*.mkv

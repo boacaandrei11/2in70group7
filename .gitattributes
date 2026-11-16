@@ -1,0 +1,21 @@
+# Normalise line endings for text files
+* text=auto
+
+# Rhapsody model files: never let git auto-merge them. A textually merged
+# model can look fine and still be corrupt. On conflict, keep one side and
+# redo the other change by hand in Rhapsody.
+model/*.rpyx            binary
+model/*_rpy/**          binary
+
+# draw.io sources are XML but do not merge meaningfully
+*.drawio                binary
+
+# Windows scripts need CRLF
+*.bat                   text eol=crlf
+*.cmd                   text eol=crlf
+*.sh                    text eol=lf
+
+# Binary documents
+*.pdf                   binary
+*.png                   binary
+*.jpg                   binary
