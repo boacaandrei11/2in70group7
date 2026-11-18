@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RhapsodyArchive>
+	<MagicNumber></MagicNumber>
+	<CODE-PAGE>1252</CODE-PAGE>
+	<version>109.0</version>
+	<lang>C++</lang>
+	<BuildNo>202002261110</BuildNo>
+	<RMMMinimumClientVersion>100.0</RMMMinimumClientVersion>
+	
+	<RHAPSODY-MODEL>
+	<ISubsystem type="e">
+			<_id type="a">GUID 261c810e-9435-48f0-9015-561d47b7489f</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">Actors</_name>
+			<_modifiedTimeWeak type="a">11.18.2026::16:9:57</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.18.2026::16:9:57</_modifiedTime>
+			<_lastID type="a">4</_lastID>
+			<weakCGTime type="a">11.18.2026::16:9:57</weakCGTime>
+			<strongCGTime type="a">11.18.2026::16:4:4</strongCGTime>
+			<_defaultComposite type="s">GUID 5e184965-77c7-46e9-a8ff-b0c66be23615</_defaultComposite>
+			<_eventsBaseID type="a">-1</_eventsBaseID>
+			<_configurationRelatedTime type="a">1.1.1970::1:0:0</_configurationRelatedTime>
+			<AggregatesList type="e">
+				<value>GUID 5e184965-77c7-46e9-a8ff-b0c66be23615</value>
+				<value>GUID 203b8283-689d-4e5a-aac6-7a253b83de85</value>
+				<value>GUID 4b09d18a-5363-402d-9321-421fe13adc4d</value>
+				<value>GUID ad6e409e-11a3-400f-9a97-e68cbcb04966</value>
+				<value>GUID f3900a89-cfa9-470a-ae73-4e84a2687956</value>
+			</AggregatesList>
+		</ISubsystem>
+		<IClass type="e">
+			<_id type="a">GUID 5e184965-77c7-46e9-a8ff-b0c66be23615</_id>
+			<_myState type="a">40960</_myState>
+			<_name type="a">TopLevel</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_modifiedTime type="a">1.1.1970::1:0:0</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IClass>
+		<IActor type="e">
+			<_id type="a">GUID 203b8283-689d-4e5a-aac6-7a253b83de85</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">ScenarioOperator</_name>
+			<_modifiedTimeWeak type="a">11.18.2026::16:8:27</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.18.2026::16:8:27</_modifiedTime>
+			<weakCGTime type="a">11.18.2026::16:8:27</weakCGTime>
+			<strongCGTime type="a">11.18.2026::16:8:27</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IActor>
+		<IActor type="e">
+			<_id type="a">GUID 4b09d18a-5363-402d-9321-421fe13adc4d</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">PythonDashboard</_name>
+			<_modifiedTimeWeak type="a">11.18.2026::16:9:42</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.18.2026::16:9:42</_modifiedTime>
+			<weakCGTime type="a">11.18.2026::16:9:42</weakCGTime>
+			<strongCGTime type="a">11.18.2026::16:9:42</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IActor>
+		<IActor type="e">
+			<_id type="a">GUID ad6e409e-11a3-400f-9a97-e68cbcb04966</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">ScenarioTestHarness</_name>
+			<_modifiedTimeWeak type="a">11.18.2026::16:9:51</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.18.2026::16:9:51</_modifiedTime>
+			<weakCGTime type="a">11.18.2026::16:9:51</weakCGTime>
+			<strongCGTime type="a">11.18.2026::16:9:51</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IActor>
+		<IActor type="e">
+			<_id type="a">GUID f3900a89-cfa9-470a-ae73-4e84a2687956</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">MLPerceptionService</_name>
+			<_modifiedTimeWeak type="a">11.18.2026::16:10:2</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.18.2026::16:10:2</_modifiedTime>
+			<weakCGTime type="a">11.18.2026::16:10:2</weakCGTime>
+			<strongCGTime type="a">11.18.2026::16:10:2</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+		</IActor>
+		
+	</RHAPSODY-MODEL>
+	<OslcLinks type="c">
+		<IRPYRawContainer type="e">
+		</IRPYRawContainer>
+	</OslcLinks>
+
+<INCLUDES-RHAPSODY-INDEX>false</INCLUDES-RHAPSODY-INDEX>
+</RhapsodyArchive>
+
