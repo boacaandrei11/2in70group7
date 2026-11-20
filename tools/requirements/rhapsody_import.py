@@ -71,12 +71,24 @@ def items(coll):
 
 def connect():
     import win32com.client  # pywin32
-    for progid in ("Rhapsody2.Application", "Rhapsody.Application"):
-        try:
-            return win32com.client.GetActiveObject(progid)
-        except Exception:
-            pass
-    sys.exit("Rhapsody is not running (or its COM server is not registered: run 'rhapsody.exe -regserver' once).")
+    errors = []
+    for how in ("GetActiveObject", "Dispatch"):
+        for progid in ("Rhapsody2.Application", "Rhapsody.Application"):
+            try:
+                app = getattr(win32com.client, how)(progid)
+                prj = app.activeProject()
+                if prj is not None:
+                    print(f"Connected via {how}('{progid}')")
+                    return app
+                errors.append(f"{how}('{progid}'): connected, but no project is open in that Rhapsody instance")
+            except Exception as e:  # noqa: BLE001
+                errors.append(f"{how}('{progid}'): {e}")
+    print("Could not reach Rhapsody. Details:")
+    for e in errors:
+        print("  - " + e)
+    sys.exit("Fixes: (1) start Rhapsody and the terminal with the SAME rights (both normal, or both 'Run as administrator'); "
+             "(2) register Rhapsody's COM server once: admin terminal -> \"<Rhapsody folder>\\rhapsody.exe\" -regserver; "
+             "(3) Python and Rhapsody must both be 64-bit (or both 32-bit).")
 
 
 def find(owner, name, meta):
