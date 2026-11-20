@@ -9,11 +9,13 @@ model/generated/
 model/**/*_bak*.rpyx
 model/**/*_auto_rpy/
 model/**/*.rpw
+model/**/*.rpwx
+model/**/*.save
 model/**/*.ehl
 model/**/*.log
 model/**/*.~*
-# NOTE: verify these against the files Rhapsody 9.0 actually writes once the
-# project exists (run `git status` after the first save and adjust).
+# *.rpwx is the per-user workspace (open diagrams, window positions) and
+# *.save an empty marker file Rhapsody writes on save; neither belongs to the model.
 
 # ── C++ / Visual Studio ───────────────────────────────────────────────────
 .vs/

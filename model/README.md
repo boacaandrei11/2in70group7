@@ -3,46 +3,50 @@
 Source of truth for all system behaviour. Rhapsody 9.0, C++ project, Microsoft
 (Visual Studio) build environment.
 
-## Expected contents
+## Contents
 
 ```
 model/
-├── SmartIntersection.rpyx        project file
-└── SmartIntersection_rpy/        one unit file per package (+ components, profiles)
+└── SmartIntersection/                 created by Rhapsody (File → New → Project, location model/)
+    ├── SmartIntersection.rpyx         project file  ← open this
+    └── SmartIntersection_rpy/         one unit file (.sbsx) per package + DefaultComponent.cmpx
 ```
 
-Create the project here: **File → New → Project**, location `model/`, name
-`SmartIntersection`, type SysML (or the course template), language C++.
+Not committed (see `.gitignore`): the per-user workspace `SmartIntersection.rpwx`
+(open diagrams, window layout), the empty `SmartIntersection.save` marker, generated
+code and backups. Rhapsody recreates them.
 
 ## Package structure (course SysML structure, each package a separate unit)
 
 The five top-level packages follow the 2IN70 course template / SYSMOD approach.
 Sub-packages group the subsystems inside them.
 
+Status as of Milestone 2: ✅ = in the model, 🔄 = defined in the repo, loaded with a script, ⏳ = planned.
+
 ```
 SmartIntersection
 ├── Requirements
-│   ├── StakeholderNeeds        concerns + conflicts C1–C4 (Milestone 1)
-│   ├── ODD                     operating assumptions as requirements
-│   ├── SystemRequirements      functional, with IDs (REQ-F-xx)
-│   └── SafetyRequirements      invariants T1–T5 (REQ-S-xx)
-├── UseCases
-│   ├── Actors                  Operator, PythonDashboard, ScenarioHarness, MLPerceptionService
-│   └── UseCaseDiagrams         configure scenario, run intersection, interpret observation,
-│                               inspect telemetry, evaluate test run
+│   └── SystemRequirements      🔄 containment tree SIS_Requirements → FUN / NFR / ODD →
+│                               groups → 36 EARS requirements, diagrams RD0–RD7.
+│                               Load with tools/requirements/rhapsody_import.py
+├── UseCases                    ✅ ConfigureScenario, RunIntersection, InspectTelemetry,
+│   │                              ExecuteTestRun, SubmitPerceptionDetections («refine» → requirements)
+│   ├── Actors                  ✅ ScenarioOperator, ScenarioTestHarness, MLPerceptionService
+│   └── UseCaseDiagrams         ✅ SmartIntersectionUseCases (system boundary = SmartIntersectionCore)
 ├── Structure
-│   ├── Context                 SmartIntersectionCore (SOI) + context BDD
-│   ├── Signals                 TrafficSignalController (+ its state machine)
-│   ├── Agents                  VehicleAgent, SmartVehicle, ConventionalVehicle, PedestrianAgent
-│   ├── Simulation              SimulationController, ScenarioManager, IntersectionGeometry
-│   ├── Interfaces              TelemetryPort, CommandPort, PerceptionPort, events, interface blocks
-│   └── ValueTypes              units and types (m, s, m/s, SignalIndication, ...)
+│   ├── Context                 ✅ SmartIntersectionCore (SOI), external blocks, SystemContext BDD
+│   │                              with information flows and items
+│   ├── Signals                 ⏳ TrafficSignalController (+ its state machine)
+│   ├── Agents                  ⏳ VehicleAgent, SmartVehicle, ConventionalVehicle, PedestrianAgent
+│   ├── Simulation              ⏳ SimulationController, ScenarioManager, IntersectionGeometry
+│   ├── Interfaces              ⏳ TelemetryPort, CommandPort, PerceptionPort, events, interface blocks
+│   └── ValueTypes              ⏳ units and types (m, s, m/s, SignalIndication, ...)
 ├── Behaviour
-│   ├── Activities              decision logic, command validation, scenario initialisation
-│   └── Interactions            sequence diagrams (timing change, stop at red, crossing request)
+│   ├── Activities              ⏳ decision logic, command validation, scenario initialisation
+│   └── Interactions            ⏳ sequence diagrams (timing change, stop at red, crossing request)
 └── Verification
-    ├── TestCases               TC-xx traced to requirements
-    └── TestHarness             test-driver blocks / scenarios used for verification
+    ├── TestCases               ⏳ TC-xx traced to requirements
+    └── TestHarness             ⏳ test-driver blocks / scenarios used for verification
 ```
 
 **State machines:** in Rhapsody a statechart is owned by its block, so it appears
@@ -73,7 +77,7 @@ most configurations; check once.
 
 1. Close Rhapsody (or save all) before `git pull`, `checkout` or `merge`.
 2. One person edits a package at a time. Tell the other member before you start.
-3. Model files are marked `binary` in `.gitattributes`, so git will not merge them.
+3. Model files are marked `-merge` in `.gitattributes`, so git will not merge them.
    On conflict: keep one version (`git checkout --ours/--theirs <file>`), open in
    Rhapsody, redo the other change.
 4. After pulling, open the project and check it loads without "unresolved

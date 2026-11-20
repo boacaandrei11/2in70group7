@@ -16,7 +16,9 @@ reliably, and Rhapsody regenerates C++ code on every build.
   so their output folders are ignored.
 - Each model package is a separate unit file edited by one person at a time (package
   structure revised in 0002); model files
-  are `binary` in `.gitattributes` so git never auto-merges them.
+  are marked `-merge` in `.gitattributes` so git never auto-merges them
+  (amended 2026-11-20: originally `binary`; `-merge` keeps line-ending normalisation
+  and readable XML diffs, and the patterns now match `model/SmartIntersection/`).
 - The C++/Python message format is defined once in `protocol/`.
 - The report stays in Overleaf; only submitted PDFs and diagram sources live here.
 

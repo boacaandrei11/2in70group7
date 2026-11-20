@@ -6,12 +6,12 @@ Developer notes for Group 7. The project overview is in [README.md](README.md).
 
 | Folder        | Contents |
 |---------------|----------|
-| `model/`      | Rhapsody project (`SmartIntersection.rpyx` + `SmartIntersection_rpy/`). Source of truth for behaviour. See [model/README.md](model/README.md). |
+| `model/`      | Rhapsody project (`SmartIntersection/SmartIntersection.rpyx` + `SmartIntersection_rpy/`). Source of truth for behaviour. See [model/README.md](model/README.md). |
 | `bridge/`     | Hand-written C++ (UDP link, JSON serialisation, command parsing) pulled into the Rhapsody build. |
 | `protocol/`   | Message contract between C++ and Python (JSON schemas + conventions). |
 | `viz/`        | Python Pygame dashboard (three panels). |
 | `scenarios/`  | Scenario definitions (JSON) for repeatable runs. |
-| `tools/`      | Dev helpers: mock simulator, demo launch script, diagram generators. |
+| `tools/`      | Dev helpers: requirements source + Rhapsody import, mock simulator, demo launch script, diagram generators. |
 | `tests/`      | Verification test cases traced to requirements, and their results. |
 | `docs/`       | Submitted milestone PDFs, diagrams (SVG + PNG for Overleaf), decision records. |
 
@@ -30,8 +30,14 @@ The report itself is written in Overleaf and is not stored here.
 ## Getting started
 
 ### Rhapsody model
-Open `model/SmartIntersection.rpyx` in Rhapsody 9.0 (C++). Build instructions:
+Open `model/SmartIntersection/SmartIntersection.rpyx` in Rhapsody 9.0 (C++). Build instructions:
 [model/README.md](model/README.md).
+
+### Requirements
+Edit `tools/requirements/requirements.json`, run `python tools/requirements/render.py`
+(checks EARS form and regenerates `docs/requirements.md`), then load the change into
+Rhapsody with `tools/requirements/rhapsody_import.py`. See
+[tools/requirements/README.md](tools/requirements/README.md).
 
 ### Dashboard
 ```bat

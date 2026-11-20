@@ -4,8 +4,11 @@
 # Rhapsody model files: never let git auto-merge them. A textually merged
 # model can look fine and still be corrupt. On conflict, keep one side and
 # redo the other change by hand in Rhapsody.
-model/*.rpyx            binary
-model/*_rpy/**          binary
+# "-merge" (not "binary") keeps line-ending normalisation and readable XML diffs
+# for review, but makes git stop at a conflict instead of merging the text.
+# The project lives in model/SmartIntersection/, hence the ** patterns.
+model/**/*.rpyx         -merge
+model/**/*_rpy/**       -merge
 
 # draw.io sources are XML but do not merge meaningfully
 *.drawio                binary
