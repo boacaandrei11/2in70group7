@@ -12,10 +12,10 @@
 			<_id type="a">GUID 4df085ae-5a61-477d-8b1f-38997db5f27f</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">UseCases</_name>
-			<_modifiedTimeWeak type="a">11.18.2026::16:5:23</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.18.2026::16:5:23</_modifiedTime>
-			<_lastID type="a">3</_lastID>
-			<weakCGTime type="a">11.18.2026::16:5:23</weakCGTime>
+			<_modifiedTimeWeak type="a">11.20.2026::11:48:23</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.20.2026::11:50:18</_modifiedTime>
+			<_lastID type="a">8</_lastID>
+			<weakCGTime type="a">11.20.2026::11:48:23</weakCGTime>
 			<strongCGTime type="a">11.18.2026::15:56:0</strongCGTime>
 			<_defaultComposite type="s">GUID ffcd9ebf-f1ad-4c7f-ae31-56b9bc5433b6</_defaultComposite>
 			<_eventsBaseID type="a">-1</_eventsBaseID>
@@ -24,6 +24,11 @@
 				<value>GUID 261c810e-9435-48f0-9015-561d47b7489f</value>
 				<value>GUID bfe16086-95bf-4882-b69f-573576722deb</value>
 				<value>GUID ffcd9ebf-f1ad-4c7f-ae31-56b9bc5433b6</value>
+				<value>GUID ff6fb204-8d99-4e8b-8bb3-bd752539b20f</value>
+				<value>GUID 1acb0cc4-1335-431e-be0c-8771935b07dd</value>
+				<value>GUID 4ef234ce-e29b-454b-a9e0-6eda7a127aac</value>
+				<value>GUID 57681e10-febe-4339-8cc3-f751a33e1904</value>
+				<value>GUID eeed1376-cb2f-405a-8893-f13e0ee7787b</value>
 			</AggregatesList>
 		</ISubsystem>
 		<ISubsystem type="e">
@@ -39,7 +44,7 @@
 			<_myState type="a">40960</_myState>
 			<_name type="a">TopLevel</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">1.1.1970::1:0:0</_modifiedTime>
+			<_modifiedTime type="a">1.2.1990::0:0:0</_modifiedTime>
 			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<_itsStateChart type="r">
@@ -48,6 +53,161 @@
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
 		</IClass>
+		<IUseCase type="e">
+			<_id type="a">GUID ff6fb204-8d99-4e8b-8bb3-bd752539b20f</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">ConfigureScenario</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\UseCaseDiagrams.sbsx</_hfilename>
+					<_hsubsystem type="a">UseCases::UseCaseDiagrams</_hsubsystem>
+					<_hname type="a">SmartIntersectionUseCases</_hname>
+					<_hid type="a">GUID 06bad11e-61a6-4b2e-b608-bf5f9ac9ef78</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">11.20.2026::11:49:56</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<UseCaseStereoTypes type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</UseCaseStereoTypes>
+			<_EntryPoints type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</_EntryPoints>
+		</IUseCase>
+		<IUseCase type="e">
+			<_id type="a">GUID 1acb0cc4-1335-431e-be0c-8771935b07dd</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">RunIntersection</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\UseCaseDiagrams.sbsx</_hfilename>
+					<_hsubsystem type="a">UseCases::UseCaseDiagrams</_hsubsystem>
+					<_hname type="a">SmartIntersectionUseCases</_hname>
+					<_hid type="a">GUID 06bad11e-61a6-4b2e-b608-bf5f9ac9ef78</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">11.20.2026::11:50:30</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<UseCaseStereoTypes type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</UseCaseStereoTypes>
+			<_EntryPoints type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</_EntryPoints>
+		</IUseCase>
+		<IUseCase type="e">
+			<_id type="a">GUID 4ef234ce-e29b-454b-a9e0-6eda7a127aac</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">InterpretObservation</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\UseCaseDiagrams.sbsx</_hfilename>
+					<_hsubsystem type="a">UseCases::UseCaseDiagrams</_hsubsystem>
+					<_hname type="a">SmartIntersectionUseCases</_hname>
+					<_hid type="a">GUID 06bad11e-61a6-4b2e-b608-bf5f9ac9ef78</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">11.20.2026::11:50:8</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<UseCaseStereoTypes type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</UseCaseStereoTypes>
+			<_EntryPoints type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</_EntryPoints>
+		</IUseCase>
+		<IUseCase type="e">
+			<_id type="a">GUID 57681e10-febe-4339-8cc3-f751a33e1904</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">InspectTelemetry</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\UseCaseDiagrams.sbsx</_hfilename>
+					<_hsubsystem type="a">UseCases::UseCaseDiagrams</_hsubsystem>
+					<_hname type="a">SmartIntersectionUseCases</_hname>
+					<_hid type="a">GUID 06bad11e-61a6-4b2e-b608-bf5f9ac9ef78</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">11.20.2026::11:50:5</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<UseCaseStereoTypes type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</UseCaseStereoTypes>
+			<_EntryPoints type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</_EntryPoints>
+		</IUseCase>
+		<IUseCase type="e">
+			<_id type="a">GUID eeed1376-cb2f-405a-8893-f13e0ee7787b</_id>
+			<_myState type="a">8192</_myState>
+			<_name type="a">EvaluateTestRun</_name>
+			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
+			<_theMainDiagram type="r">
+				<IHandle type="e">
+					<_hm2Class type="a">IUCDiagram</_hm2Class>
+					<_hfilename type="a">.\UseCaseDiagrams.sbsx</_hfilename>
+					<_hsubsystem type="a">UseCases::UseCaseDiagrams</_hsubsystem>
+					<_hname type="a">SmartIntersectionUseCases</_hname>
+					<_hid type="a">GUID 06bad11e-61a6-4b2e-b608-bf5f9ac9ef78</_hid>
+				</IHandle>
+			</_theMainDiagram>
+			<_modifiedTime type="a">11.20.2026::11:50:2</_modifiedTime>
+			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
+			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
+			<_itsStateChart type="r">
+				<IHandle type="e">
+				</IHandle>
+			</_itsStateChart>
+			<_classModifier type="a">Unspecified</_classModifier>
+			<UseCaseStereoTypes type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</UseCaseStereoTypes>
+			<_EntryPoints type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</_EntryPoints>
+		</IUseCase>
 		
 	</RHAPSODY-MODEL>
 	<OslcLinks type="c">

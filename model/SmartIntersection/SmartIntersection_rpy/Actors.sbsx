@@ -12,10 +12,10 @@
 			<_id type="a">GUID 261c810e-9435-48f0-9015-561d47b7489f</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Actors</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::11:35:19</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:38:27</_modifiedTime>
+			<_modifiedTimeWeak type="a">11.20.2026::11:53:27</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.20.2026::11:53:27</_modifiedTime>
 			<_lastID type="a">4</_lastID>
-			<weakCGTime type="a">11.20.2026::11:35:19</weakCGTime>
+			<weakCGTime type="a">11.20.2026::11:53:27</weakCGTime>
 			<strongCGTime type="a">11.18.2026::16:4:4</strongCGTime>
 			<_defaultComposite type="s">GUID 5e184965-77c7-46e9-a8ff-b0c66be23615</_defaultComposite>
 			<_eventsBaseID type="a">-1</_eventsBaseID>
@@ -46,7 +46,7 @@
 			<_id type="a">GUID 203b8283-689d-4e5a-aac6-7a253b83de85</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">ScenarioOperator</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::11:37:24</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">11.20.2026::11:55:57</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -56,9 +56,9 @@
 					<_hid type="a">GUID becf720e-4823-467d-a0b6-cd8b7307d44c</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::11:37:24</_modifiedTime>
-			<_lastID type="a">1</_lastID>
-			<weakCGTime type="a">11.20.2026::11:37:24</weakCGTime>
+			<_modifiedTime type="a">11.20.2026::11:55:57</_modifiedTime>
+			<_lastID type="a">2</_lastID>
+			<weakCGTime type="a">11.20.2026::11:55:57</weakCGTime>
 			<strongCGTime type="a">11.18.2026::16:8:27</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -70,22 +70,22 @@
 			</Associations>
 			<_classModifier type="a">Unspecified</_classModifier>
 			<AggregatesList type="e">
-				<value>GUID 9bf72738-5f89-491a-8b4c-15dbb2c47c8b</value>
-				<value>GUID f4d14cda-eef6-43e3-8642-f10fc45a23ba</value>
+				<value>GUID c0d3a644-865a-4936-8997-7b442b3f9d8f</value>
+				<value>GUID c92e1867-a383-4399-91c0-30df8db77381</value>
 			</AggregatesList>
 		</IActor>
 		<IInformationFlow type="e">
-			<_id type="a">GUID 9bf72738-5f89-491a-8b4c-15dbb2c47c8b</_id>
+			<_id type="a">GUID c0d3a644-865a-4936-8997-7b442b3f9d8f</_id>
 			<_myState type="a">2048</_myState>
 			<_name type="a">ScenarioOperator_PythonDashboard</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:37:24</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::11:55:57</_modifiedTime>
 			<Conveyed type="c">
 				<IRPYRawContainer type="e">
 					
 						<IHandle type="e">
 							<_hm2Class type="a">IInformationItem</_hm2Class>
-							<_hid type="a">GUID f4d14cda-eef6-43e3-8642-f10fc45a23ba</_hid>
+							<_hid type="a">GUID c92e1867-a383-4399-91c0-30df8db77381</_hid>
 						</IHandle>
 					
 				</IRPYRawContainer>
@@ -108,17 +108,17 @@
 			<direction_ type="a">toEnd2</direction_>
 		</IInformationFlow>
 		<IInformationItem type="e">
-			<_id type="a">GUID f4d14cda-eef6-43e3-8642-f10fc45a23ba</_id>
+			<_id type="a">GUID c92e1867-a383-4399-91c0-30df8db77381</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">OperatorCommands</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:12:39</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::11:55:57</_modifiedTime>
 		</IInformationItem>
 		<IActor type="e">
 			<_id type="a">GUID 4b09d18a-5363-402d-9321-421fe13adc4d</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">PythonDashboard</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::11:37:16</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">11.20.2026::11:53:48</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -128,9 +128,9 @@
 					<_hid type="a">GUID becf720e-4823-467d-a0b6-cd8b7307d44c</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::11:37:16</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::11:53:48</_modifiedTime>
 			<_lastID type="a">3</_lastID>
-			<weakCGTime type="a">11.20.2026::11:37:16</weakCGTime>
+			<weakCGTime type="a">11.20.2026::11:53:48</weakCGTime>
 			<strongCGTime type="a">11.18.2026::16:9:42</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -141,101 +141,12 @@
 				</IRPYRawContainer>
 			</Associations>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<AggregatesList type="e">
-				<value>GUID f1d1eff3-9c79-4b05-9d1d-5ff15b962e4d</value>
-				<value>GUID 7d2a5a5e-9c3a-4423-b8df-a254846a3773</value>
-				<value>GUID d37173df-4bd3-4b27-872a-1db3fb5a12bb</value>
-				<value>GUID 7e1143ce-7e12-4160-a098-94df65d0ef83</value>
-			</AggregatesList>
 		</IActor>
-		<IInformationFlow type="e">
-			<_id type="a">GUID f1d1eff3-9c79-4b05-9d1d-5ff15b962e4d</_id>
-			<_myState type="a">2048</_myState>
-			<_name type="a">PythonDashboard_SmartIntersectionCore</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:37:8</_modifiedTime>
-			<Conveyed type="c">
-				<IRPYRawContainer type="e">
-					
-						<IHandle type="e">
-							<_hm2Class type="a">IInformationItem</_hm2Class>
-							<_hid type="a">GUID 7d2a5a5e-9c3a-4423-b8df-a254846a3773</_hid>
-						</IHandle>
-					
-				</IRPYRawContainer>
-			</Conveyed>
-			<end1_ type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IClass</_hm2Class>
-					<_hfilename type="a">.\Context.sbsx</_hfilename>
-					<_hsubsystem type="a">Structure::Context</_hsubsystem>
-					<_hname type="a">PythonDashboard</_hname>
-					<_hid type="a">GUID 661047ce-bdbe-4631-a648-aadd6f0738e3</_hid>
-				</IHandle>
-			</end1_>
-			<end2_ type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IClass</_hm2Class>
-					<_hfilename type="a">.\Context.sbsx</_hfilename>
-					<_hsubsystem type="a">Structure::Context</_hsubsystem>
-					<_hname type="a">SmartIntersectionCore</_hname>
-					<_hid type="a">GUID 6691895c-06a3-4e88-ab06-ac8f7bdc87d7</_hid>
-				</IHandle>
-			</end2_>
-			<direction_ type="a">toEnd2</direction_>
-		</IInformationFlow>
-		<IInformationItem type="e">
-			<_id type="a">GUID 7d2a5a5e-9c3a-4423-b8df-a254846a3773</_id>
-			<_myState type="a">8192</_myState>
-			<_name type="a">ScenarioConfigurationAndControl</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:14:50</_modifiedTime>
-		</IInformationItem>
-		<IInformationFlow type="e">
-			<_id type="a">GUID d37173df-4bd3-4b27-872a-1db3fb5a12bb</_id>
-			<_myState type="a">2048</_myState>
-			<_name type="a">PythonDashboard_ScenarioOperator</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:37:21</_modifiedTime>
-			<Conveyed type="c">
-				<IRPYRawContainer type="e">
-					
-						<IHandle type="e">
-							<_hm2Class type="a">IInformationItem</_hm2Class>
-							<_hid type="a">GUID 7e1143ce-7e12-4160-a098-94df65d0ef83</_hid>
-						</IHandle>
-					
-				</IRPYRawContainer>
-			</Conveyed>
-			<end1_ type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IClass</_hm2Class>
-					<_hfilename type="a">.\Context.sbsx</_hfilename>
-					<_hsubsystem type="a">Structure::Context</_hsubsystem>
-					<_hname type="a">PythonDashboard</_hname>
-					<_hid type="a">GUID 661047ce-bdbe-4631-a648-aadd6f0738e3</_hid>
-				</IHandle>
-			</end1_>
-			<end2_ type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IActor</_hm2Class>
-					<_hid type="a">GUID 203b8283-689d-4e5a-aac6-7a253b83de85</_hid>
-				</IHandle>
-			</end2_>
-			<direction_ type="a">toEnd2</direction_>
-		</IInformationFlow>
-		<IInformationItem type="e">
-			<_id type="a">GUID 7e1143ce-7e12-4160-a098-94df65d0ef83</_id>
-			<_myState type="a">8192</_myState>
-			<_name type="a">SimulationDisplayAndFeedback</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:24:43</_modifiedTime>
-		</IInformationItem>
 		<IActor type="e">
 			<_id type="a">GUID ad6e409e-11a3-400f-9a97-e68cbcb04966</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">ScenarioTestHarness</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::11:36:0</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">11.20.2026::11:53:29</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -245,9 +156,9 @@
 					<_hid type="a">GUID becf720e-4823-467d-a0b6-cd8b7307d44c</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::11:36:0</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::11:53:29</_modifiedTime>
 			<_lastID type="a">2</_lastID>
-			<weakCGTime type="a">11.20.2026::11:36:0</weakCGTime>
+			<weakCGTime type="a">11.20.2026::11:53:29</weakCGTime>
 			<strongCGTime type="a">11.18.2026::16:9:51</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -258,59 +169,12 @@
 				</IRPYRawContainer>
 			</Associations>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<AggregatesList type="e">
-				<value>GUID cbdc6a06-1804-4821-a669-b89476e7ba3a</value>
-				<value>GUID d437eff4-4bf1-49a1-a5e2-56a8d5af38bf</value>
-			</AggregatesList>
 		</IActor>
-		<IInformationFlow type="e">
-			<_id type="a">GUID cbdc6a06-1804-4821-a669-b89476e7ba3a</_id>
-			<_myState type="a">2048</_myState>
-			<_name type="a">ScenarioTestHarness_SmartIntersectionCore</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:36:6</_modifiedTime>
-			<Conveyed type="c">
-				<IRPYRawContainer type="e">
-					
-						<IHandle type="e">
-							<_hm2Class type="a">IInformationItem</_hm2Class>
-							<_hid type="a">GUID d437eff4-4bf1-49a1-a5e2-56a8d5af38bf</_hid>
-						</IHandle>
-					
-				</IRPYRawContainer>
-			</Conveyed>
-			<end1_ type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IClass</_hm2Class>
-					<_hfilename type="a">.\Context.sbsx</_hfilename>
-					<_hsubsystem type="a">Structure::Context</_hsubsystem>
-					<_hname type="a">ScenarioTestHarness</_hname>
-					<_hid type="a">GUID 2a3c0d2e-6879-48e6-8d0c-8827a1ba94f4</_hid>
-				</IHandle>
-			</end1_>
-			<end2_ type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IClass</_hm2Class>
-					<_hfilename type="a">.\Context.sbsx</_hfilename>
-					<_hsubsystem type="a">Structure::Context</_hsubsystem>
-					<_hname type="a">SmartIntersectionCore</_hname>
-					<_hid type="a">GUID 6691895c-06a3-4e88-ab06-ac8f7bdc87d7</_hid>
-				</IHandle>
-			</end2_>
-			<direction_ type="a">toEnd2</direction_>
-		</IInformationFlow>
-		<IInformationItem type="e">
-			<_id type="a">GUID d437eff4-4bf1-49a1-a5e2-56a8d5af38bf</_id>
-			<_myState type="a">8192</_myState>
-			<_name type="a">ScenarioAndTestInputs</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:18:54</_modifiedTime>
-		</IInformationItem>
 		<IActor type="e">
 			<_id type="a">GUID f3900a89-cfa9-470a-ae73-4e84a2687956</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">MLPerceptionService</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::11:35:35</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">11.20.2026::11:53:53</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -320,9 +184,9 @@
 					<_hid type="a">GUID becf720e-4823-467d-a0b6-cd8b7307d44c</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::11:35:35</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::11:53:53</_modifiedTime>
 			<_lastID type="a">2</_lastID>
-			<weakCGTime type="a">11.20.2026::11:35:35</weakCGTime>
+			<weakCGTime type="a">11.20.2026::11:53:53</weakCGTime>
 			<strongCGTime type="a">11.18.2026::16:10:2</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -333,54 +197,7 @@
 				</IRPYRawContainer>
 			</Associations>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<AggregatesList type="e">
-				<value>GUID 4a1baa70-88c4-4695-9ce1-6b23eea0191d</value>
-				<value>GUID febd972c-ae7c-4d60-ba82-617d3a2537bc</value>
-			</AggregatesList>
 		</IActor>
-		<IInformationFlow type="e">
-			<_id type="a">GUID 4a1baa70-88c4-4695-9ce1-6b23eea0191d</_id>
-			<_myState type="a">2048</_myState>
-			<_name type="a">MLPerceptionService_SmartIntersectionCore</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:35:19</_modifiedTime>
-			<Conveyed type="c">
-				<IRPYRawContainer type="e">
-					
-						<IHandle type="e">
-							<_hm2Class type="a">IInformationItem</_hm2Class>
-							<_hid type="a">GUID febd972c-ae7c-4d60-ba82-617d3a2537bc</_hid>
-						</IHandle>
-					
-				</IRPYRawContainer>
-			</Conveyed>
-			<end1_ type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IClass</_hm2Class>
-					<_hfilename type="a">.\Context.sbsx</_hfilename>
-					<_hsubsystem type="a">Structure::Context</_hsubsystem>
-					<_hname type="a">MLPerceptionService</_hname>
-					<_hid type="a">GUID 51f05f7b-29fc-42b5-9929-ccb9af65a766</_hid>
-				</IHandle>
-			</end1_>
-			<end2_ type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IClass</_hm2Class>
-					<_hfilename type="a">.\Context.sbsx</_hfilename>
-					<_hsubsystem type="a">Structure::Context</_hsubsystem>
-					<_hname type="a">SmartIntersectionCore</_hname>
-					<_hid type="a">GUID 6691895c-06a3-4e88-ab06-ac8f7bdc87d7</_hid>
-				</IHandle>
-			</end2_>
-			<direction_ type="a">toEnd2</direction_>
-		</IInformationFlow>
-		<IInformationItem type="e">
-			<_id type="a">GUID febd972c-ae7c-4d60-ba82-617d3a2537bc</_id>
-			<_myState type="a">8192</_myState>
-			<_name type="a">PerceptionDetections</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::11:21:8</_modifiedTime>
-		</IInformationItem>
 		
 	</RHAPSODY-MODEL>
 	<OslcLinks type="c">
