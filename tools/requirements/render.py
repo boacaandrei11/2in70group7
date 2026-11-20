@@ -203,35 +203,42 @@ def tex_ears(s):
     return s
 
 
+PATTERN_SHORT = {"Ubiquitous": "ubiquitous", "State-driven": "state", "Event-driven": "event",
+                 "Unwanted behaviour": "unwanted", "Optional feature": "optional", "Complex (state + event)": "complex"}
+
+
 def render_tex(data, outdir: Path):
+    """Write req_table_rows.tex (rows for a 5-column longtable) and req_trace_matrix.tex.
+
+    Needs only booktabs, longtable, array and graphicx in the preamble.
+    """
     outdir.mkdir(parents=True, exist_ok=True)
     uc = data["use_cases"]
     containers = {c["id"]: c for c in data["containers"]}
     rows = []
     for g in ["SIG", "RUN", "AGT", "SV", "OBS", "NFR", "ODD"]:
-        rows.append(r"\multicolumn{5}{l}{\cellcolor{reqgroup}\textbf{" + g + " -- " + tex_escape(containers[g]["title"]) + r"}}\\")
+        kind = r" \emph{(functional)}" if containers[g]["parent"] == "FUN" else ""
+        rows.append(r"\addlinespace[3pt]\multicolumn{5}{@{}l}{\textbf{" + g + " -- " + tex_escape(containers[g]["title"])
+                    + "}" + kind + r"}\\*")
+        rows.append(r"\midrule")
         for r in [x for x in data["requirements"] if x["parent"] == g]:
-            rat = tex_escape(r["rationale"]) + r" {\color{reqsrc}[" + tex_escape(r["source"]) + "]}"
-            rows.append(f"\\textbf{{{r['id']}}} & {tex_ears(r['text'])} & {rat} & {r['priority']} & {r['verification']}\\\\")
+            rat = tex_escape(r["rationale"]) + r" \emph{[" + tex_escape(r["source"]) + "]}"
+            idcell = r"\textbf{" + r["id"] + r"}\newline{\scriptsize\emph{" + PATTERN_SHORT[r["pattern"]] + "}}"
+            rows.append(f"{idcell} & {tex_ears(r['text'])} & {rat} & {r['priority']} & {r['verification']}\\\\")
     (outdir / "req_table_rows.tex").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
     names = list(uc)
-    head = " & ".join(r"\rotatebox{90}{" + uc[n]["id"] + " " + n + "}" for n in names)
-    lines = [r"\begin{tabular}{l" + "c" * len(names) + "}", r"\toprule", "Req. & " + head + r"\\", r"\midrule"]
     reqs = data["requirements"]
     half = (len(reqs) + 1) // 2
-    for r in reqs:
-        lines.append(r["id"] + " & " + " & ".join(r"$\bullet$" if n in r["refined_by"] else "" for n in names) + r"\\")
-    lines += [r"\bottomrule", r"\end{tabular}"]
-    # split matrix in two side-by-side halves to save space
+
     def matrix(part):
-        L = [r"\begin{tabular}[t]{l" + "c" * len(names) + "}", r"\toprule",
+        L = [r"\begin{tabular}[t]{@{}l" + "c" * len(names) + "@{}}", r"\toprule",
              "Req. & " + " & ".join(uc[n]["id"] for n in names) + r"\\", r"\midrule"]
         for r in part:
             L.append(r["id"] + " & " + " & ".join(r"$\bullet$" if n in r["refined_by"] else "" for n in names) + r"\\")
         L += [r"\bottomrule", r"\end{tabular}"]
         return "\n".join(L)
-    (outdir / "req_trace_matrix.tex").write_text(matrix(reqs[:half]) + "\n\\hspace{1.5em}\n" + matrix(reqs[half:]) + "\n",
+    (outdir / "req_trace_matrix.tex").write_text(matrix(reqs[:half]) + "\n\\hspace{2em}\n" + matrix(reqs[half:]) + "\n",
                                                  encoding="utf-8")
 
 
