@@ -69,26 +69,39 @@ def items(coll):
     return [coll.Item(i) for i in range(1, coll.Count + 1)]
 
 
-def connect():
+DEFAULT_PROJECT = r"C:\GitDev\2in70group7\model\SmartIntersection\SmartIntersection.rpyx"
+
+
+def connect(project_path):
+    """Return (app, project, opened_by_script)."""
     import win32com.client  # pywin32
     errors = []
     for how in ("GetActiveObject", "Dispatch"):
         for progid in ("Rhapsody2.Application", "Rhapsody.Application"):
             try:
                 app = getattr(win32com.client, how)(progid)
-                prj = app.activeProject()
-                if prj is not None:
-                    print(f"Connected via {how}('{progid}')")
-                    return app
-                errors.append(f"{how}('{progid}'): connected, but no project is open in that Rhapsody instance")
             except Exception as e:  # noqa: BLE001
                 errors.append(f"{how}('{progid}'): {e}")
+                continue
+            prj = app.activeProject()
+            if prj is not None:
+                print(f"Connected via {how}('{progid}') to the open project")
+                return app, prj, False
+            # A Rhapsody instance without a project (typically a new background instance):
+            # open the project in it ourselves.
+            print(f"Connected via {how}('{progid}'); opening {project_path}")
+            try:
+                app.openProject(project_path)
+                prj = app.activeProject()
+            except Exception as e:  # noqa: BLE001
+                errors.append(f"openProject failed: {e}")
+                prj = None
+            if prj is not None:
+                return app, prj, True
     print("Could not reach Rhapsody. Details:")
     for e in errors:
         print("  - " + e)
-    sys.exit("Fixes: (1) start Rhapsody and the terminal with the SAME rights (both normal, or both 'Run as administrator'); "
-             "(2) register Rhapsody's COM server once: admin terminal -> \"<Rhapsody folder>\\rhapsody.exe\" -regserver; "
-             "(3) Python and Rhapsody must both be 64-bit (or both 32-bit).")
+    sys.exit("Fixes: start Rhapsody and the terminal with the same rights; check --project path.")
 
 
 def find(owner, name, meta):
@@ -196,16 +209,16 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
     ap.add_argument("--no-diagrams", action="store_true")
+    ap.add_argument("--project", default=DEFAULT_PROJECT, help="path to SmartIntersection.rpyx")
     a = ap.parse_args()
     data = json.loads((HERE / "requirements.json").read_text(encoding="utf-8"))
     if a.dry_run:
         plan(data)
         return
 
-    app = connect()
-    prj = app.activeProject()
-    if prj is None:
-        sys.exit("No project open in Rhapsody.")
+    if not Path(a.project).exists():
+        sys.exit(f"Project file not found: {a.project}  (use --project <path to SmartIntersection.rpyx>)")
+    app, prj, opened = connect(a.project)
     log(f"Project: {prj.name}")
     top = find(prj, "Requirements", "Package")
     if top is None:
@@ -259,6 +272,13 @@ def main():
         log("Project saved.")
     except Exception as e:  # noqa: BLE001
         problem(f"save failed ({e}); save in Rhapsody with Ctrl+S")
+    if opened:
+        try:
+            prj.close()
+            app.quit()
+            log("Closed the background Rhapsody instance. Now open the project in Rhapsody yourself.")
+        except Exception:
+            log("Close the background Rhapsody instance in Task Manager (rhapsody.exe) before opening the project.")
     if problems:
         log(f"\n{len(problems)} step(s) need manual work:")
         for p in problems:
