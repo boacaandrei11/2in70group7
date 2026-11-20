@@ -12,10 +12,10 @@
 			<_id type="a">GUID 261c810e-9435-48f0-9015-561d47b7489f</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">Actors</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::13:33:54</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:36:21</_modifiedTime>
+			<_modifiedTimeWeak type="a">11.20.2026::17:10:45</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.20.2026::17:12:3</_modifiedTime>
 			<_lastID type="a">4</_lastID>
-			<weakCGTime type="a">11.20.2026::13:33:54</weakCGTime>
+			<weakCGTime type="a">11.20.2026::17:10:45</weakCGTime>
 			<strongCGTime type="a">11.18.2026::16:4:4</strongCGTime>
 			<_defaultComposite type="s">GUID 5e184965-77c7-46e9-a8ff-b0c66be23615</_defaultComposite>
 			<_eventsBaseID type="a">-1</_eventsBaseID>
@@ -204,7 +204,7 @@
 			<_id type="a">GUID 4b09d18a-5363-402d-9321-421fe13adc4d</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">PythonDashboard</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::13:35:1</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">11.20.2026::17:13:17</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -214,113 +214,25 @@
 					<_hid type="a">GUID becf720e-4823-467d-a0b6-cd8b7307d44c</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::13:35:1</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::17:13:17</_modifiedTime>
 			<_lastID type="a">3</_lastID>
-			<weakCGTime type="a">11.20.2026::13:35:1</weakCGTime>
+			<weakCGTime type="a">11.20.2026::17:13:17</weakCGTime>
 			<strongCGTime type="a">11.18.2026::16:9:42</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
 				</IHandle>
 			</_itsStateChart>
+			<Associations type="c">
+				<IRPYRawContainer type="e">
+				</IRPYRawContainer>
+			</Associations>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<AggregatesList type="e">
-				<value>GUID a9aaef4c-50fb-4a33-b2dd-21507026bd13</value>
-				<value>GUID 38d5dce6-041b-4180-9294-e30d9527a331</value>
-				<value>GUID 4d634445-ba01-4663-a6ea-1fa7eb5edf2d</value>
-			</AggregatesList>
 		</IActor>
-		<IAssociationEnd type="e">
-			<_id type="a">GUID a9aaef4c-50fb-4a33-b2dd-21507026bd13</_id>
-			<_myState type="a">10240</_myState>
-			<_name type="a">itsConfigureScenario</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:34:48</_modifiedTime>
-			<_multiplicity type="a">1</_multiplicity>
-			<_otherClass type="r">
-				<IClassifierHandle type="e">
-					<_hm2Class type="a">IUseCase</_hm2Class>
-					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hname type="a">ConfigureScenario</_hname>
-					<_hid type="a">GUID ff6fb204-8d99-4e8b-8bb3-bd752539b20f</_hid>
-				</IClassifierHandle>
-			</_otherClass>
-			<_inverse type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IAssociationEnd</_hm2Class>
-					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hclass type="a">ConfigureScenario</_hclass>
-					<_hname type="a">itsPythonDashboard</_hname>
-					<_hid type="a">GUID 4ad0f4a9-7c13-408c-89f1-bbf5add766f2</_hid>
-				</IHandle>
-			</_inverse>
-			<_linkType type="a">Assoc</_linkType>
-			<_navigability type="a">Navigable</_navigability>
-		</IAssociationEnd>
-		<IAssociationEnd type="e">
-			<_id type="a">GUID 38d5dce6-041b-4180-9294-e30d9527a331</_id>
-			<_myState type="a">10240</_myState>
-			<_name type="a">itsRunIntersection</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:34:56</_modifiedTime>
-			<_multiplicity type="a">1</_multiplicity>
-			<_otherClass type="r">
-				<IClassifierHandle type="e">
-					<_hm2Class type="a">IUseCase</_hm2Class>
-					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hname type="a">RunIntersection</_hname>
-					<_hid type="a">GUID 1acb0cc4-1335-431e-be0c-8771935b07dd</_hid>
-				</IClassifierHandle>
-			</_otherClass>
-			<_inverse type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IAssociationEnd</_hm2Class>
-					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hclass type="a">RunIntersection</_hclass>
-					<_hname type="a">itsPythonDashboard</_hname>
-					<_hid type="a">GUID 31aa7092-acff-4ee3-bad8-e7dbbdae47a4</_hid>
-				</IHandle>
-			</_inverse>
-			<_linkType type="a">Assoc</_linkType>
-			<_navigability type="a">Navigable</_navigability>
-		</IAssociationEnd>
-		<IAssociationEnd type="e">
-			<_id type="a">GUID 4d634445-ba01-4663-a6ea-1fa7eb5edf2d</_id>
-			<_myState type="a">10240</_myState>
-			<_name type="a">itsInspectTelemetry</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:35:1</_modifiedTime>
-			<_multiplicity type="a">1</_multiplicity>
-			<_otherClass type="r">
-				<IClassifierHandle type="e">
-					<_hm2Class type="a">IUseCase</_hm2Class>
-					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hname type="a">InspectTelemetry</_hname>
-					<_hid type="a">GUID 57681e10-febe-4339-8cc3-f751a33e1904</_hid>
-				</IClassifierHandle>
-			</_otherClass>
-			<_inverse type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IAssociationEnd</_hm2Class>
-					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hclass type="a">InspectTelemetry</_hclass>
-					<_hname type="a">itsPythonDashboard</_hname>
-					<_hid type="a">GUID 368bd0f0-8c63-4a0d-bc81-18c285d611c1</_hid>
-				</IHandle>
-			</_inverse>
-			<_linkType type="a">Assoc</_linkType>
-			<_navigability type="a">Navigable</_navigability>
-		</IAssociationEnd>
 		<IActor type="e">
 			<_id type="a">GUID ad6e409e-11a3-400f-9a97-e68cbcb04966</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">ScenarioTestHarness</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::13:35:28</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">11.20.2026::17:17:29</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -330,9 +242,9 @@
 					<_hid type="a">GUID becf720e-4823-467d-a0b6-cd8b7307d44c</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::13:35:28</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::17:17:29</_modifiedTime>
 			<_lastID type="a">2</_lastID>
-			<weakCGTime type="a">11.20.2026::13:35:28</weakCGTime>
+			<weakCGTime type="a">11.20.2026::17:17:29</weakCGTime>
 			<strongCGTime type="a">11.18.2026::16:9:51</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -346,16 +258,16 @@
 		<IAssociationEnd type="e">
 			<_id type="a">GUID 2385bc8c-459e-4278-8f9a-f8bb0947eedf</_id>
 			<_myState type="a">10240</_myState>
-			<_name type="a">itsEvaluateTestRun</_name>
+			<_name type="a">itsExecuteTestRun</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:35:28</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::17:17:29</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
 					<_hm2Class type="a">IUseCase</_hm2Class>
 					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
 					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hname type="a">EvaluateTestRun</_hname>
+					<_hname type="a">ExecuteTestRun</_hname>
 					<_hid type="a">GUID eeed1376-cb2f-405a-8893-f13e0ee7787b</_hid>
 				</IClassifierHandle>
 			</_otherClass>
@@ -364,7 +276,7 @@
 					<_hm2Class type="a">IAssociationEnd</_hm2Class>
 					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
 					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hclass type="a">EvaluateTestRun</_hclass>
+					<_hclass type="a">ExecuteTestRun</_hclass>
 					<_hname type="a">itsScenarioTestHarness</_hname>
 					<_hid type="a">GUID 11d7fd30-0526-48ab-8afc-097b7c1b5105</_hid>
 				</IHandle>
@@ -376,7 +288,7 @@
 			<_id type="a">GUID f3900a89-cfa9-470a-ae73-4e84a2687956</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">MLPerceptionService</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::13:35:34</_modifiedTimeWeak>
+			<_modifiedTimeWeak type="a">11.20.2026::17:15:35</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
 					<_hm2Class type="a">IDiagram</_hm2Class>
@@ -386,9 +298,9 @@
 					<_hid type="a">GUID becf720e-4823-467d-a0b6-cd8b7307d44c</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::13:35:34</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::17:15:35</_modifiedTime>
 			<_lastID type="a">2</_lastID>
-			<weakCGTime type="a">11.20.2026::13:35:34</weakCGTime>
+			<weakCGTime type="a">11.20.2026::17:15:35</weakCGTime>
 			<strongCGTime type="a">11.18.2026::16:10:2</strongCGTime>
 			<_itsStateChart type="r">
 				<IHandle type="e">
@@ -402,16 +314,16 @@
 		<IAssociationEnd type="e">
 			<_id type="a">GUID 2018664b-e2c0-4ddb-b369-39a2c50a010f</_id>
 			<_myState type="a">10240</_myState>
-			<_name type="a">itsInterpretObservation</_name>
+			<_name type="a">itsSubmitPerceptionDetections</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:35:34</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::17:15:35</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
 					<_hm2Class type="a">IUseCase</_hm2Class>
 					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
 					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hname type="a">InterpretObservation</_hname>
+					<_hname type="a">SubmitPerceptionDetections</_hname>
 					<_hid type="a">GUID 4ef234ce-e29b-454b-a9e0-6eda7a127aac</_hid>
 				</IClassifierHandle>
 			</_otherClass>
@@ -420,7 +332,7 @@
 					<_hm2Class type="a">IAssociationEnd</_hm2Class>
 					<_hfilename type="a">.\UseCases.sbsx</_hfilename>
 					<_hsubsystem type="a">UseCases</_hsubsystem>
-					<_hclass type="a">InterpretObservation</_hclass>
+					<_hclass type="a">SubmitPerceptionDetections</_hclass>
 					<_hname type="a">itsMLPerceptionService</_hname>
 					<_hid type="a">GUID 69a4edd2-6ebe-47e1-9f24-a711d6ae80b8</_hid>
 				</IHandle>

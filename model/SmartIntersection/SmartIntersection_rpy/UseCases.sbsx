@@ -12,10 +12,10 @@
 			<_id type="a">GUID 4df085ae-5a61-477d-8b1f-38997db5f27f</_id>
 			<_myState type="a">8192</_myState>
 			<_name type="a">UseCases</_name>
-			<_modifiedTimeWeak type="a">11.20.2026::13:45:22</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:50:16</_modifiedTime>
+			<_modifiedTimeWeak type="a">11.20.2026::17:21:20</_modifiedTimeWeak>
+			<_modifiedTime type="a">11.20.2026::17:12:3</_modifiedTime>
 			<_lastID type="a">8</_lastID>
-			<weakCGTime type="a">11.20.2026::13:45:22</weakCGTime>
+			<weakCGTime type="a">11.20.2026::17:21:20</weakCGTime>
 			<strongCGTime type="a">11.18.2026::15:56:0</strongCGTime>
 			<_defaultComposite type="s">GUID ffcd9ebf-f1ad-4c7f-ae31-56b9bc5433b6</_defaultComposite>
 			<_eventsBaseID type="a">-1</_eventsBaseID>
@@ -68,10 +68,10 @@
 				</IHandle>
 			</_theMainDiagram>
 			<_description type="p"><IDescription type="e">
-				<_text type="a">Allows the ScenarioOperator to configure the intersection simulation by selecting traffic scenarios, specifying the traffic population and road-user parameters, and requesting traffic-light timing plans. SmartIntersectionCore validates the requested configuration and confirms whether it is accepted or rejected. Valid timing changes requested during an active simulation are applied at a permitted phase boundary.</_text>
+				<_text type="a">The ScenarioOperator configures the intersection simulation by selecting a scenario and specifying traffic demand, vehicle and pedestrian parameters, and requested traffic-light timing values. SmartIntersectionCore validates the supplied configuration and either accepts or rejects it. Accepted configuration is used to initialize the simulation or applied at an appropriate safe point during execution.</_text>
 			</IDescription>
 			</_description>
-			<_modifiedTime type="a">11.20.2026::13:45:22</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::17:21:20</_modifiedTime>
 			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<_itsStateChart type="r">
@@ -79,17 +79,12 @@
 				</IHandle>
 			</_itsStateChart>
 			<_classModifier type="a">Unspecified</_classModifier>
-			<Diagrams type="c">
-				<IRPYRawContainer type="e">
-				</IRPYRawContainer>
-			</Diagrams>
 			<_EntryPoints type="c">
 				<IRPYRawContainer type="e">
 				</IRPYRawContainer>
 			</_EntryPoints>
 			<AggregatesList type="e">
 				<value>GUID dab01a8f-2308-4185-b0bd-9e840d2ef9b0</value>
-				<value>GUID 4ad0f4a9-7c13-408c-89f1-bbf5add766f2</value>
 			</AggregatesList>
 		</IUseCase>
 		<IAssociationEnd type="e">
@@ -121,35 +116,6 @@
 			<_linkType type="a">Assoc</_linkType>
 			<_navigability type="a">Navigable</_navigability>
 		</IAssociationEnd>
-		<IAssociationEnd type="e">
-			<_id type="a">GUID 4ad0f4a9-7c13-408c-89f1-bbf5add766f2</_id>
-			<_myState type="a">10240</_myState>
-			<_name type="a">itsPythonDashboard</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:34:48</_modifiedTime>
-			<_multiplicity type="a">1</_multiplicity>
-			<_otherClass type="r">
-				<IClassifierHandle type="e">
-					<_hm2Class type="a">IActor</_hm2Class>
-					<_hfilename type="a">.\Actors.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases::Actors</_hsubsystem>
-					<_hname type="a">PythonDashboard</_hname>
-					<_hid type="a">GUID 4b09d18a-5363-402d-9321-421fe13adc4d</_hid>
-				</IClassifierHandle>
-			</_otherClass>
-			<_inverse type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IAssociationEnd</_hm2Class>
-					<_hfilename type="a">.\Actors.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases::Actors</_hsubsystem>
-					<_hclass type="a">PythonDashboard</_hclass>
-					<_hname type="a">itsConfigureScenario</_hname>
-					<_hid type="a">GUID a9aaef4c-50fb-4a33-b2dd-21507026bd13</_hid>
-				</IHandle>
-			</_inverse>
-			<_linkType type="a">Assoc</_linkType>
-			<_navigability type="a">Navigable</_navigability>
-		</IAssociationEnd>
 		<IUseCase type="e">
 			<_id type="a">GUID 1acb0cc4-1335-431e-be0c-8771935b07dd</_id>
 			<_myState type="a">8192</_myState>
@@ -165,10 +131,10 @@
 				</IHandle>
 			</_theMainDiagram>
 			<_description type="p"><IDescription type="e">
-				<_text type="a">Allows the ScenarioOperator to start and control an intersection simulation. SmartIntersectionCore advances the simulation clock, executes the traffic-signal phases and timing, and updates the behaviour and positions of vehicle and pedestrian agents according to the defined right-of-way rules. The operator can pause or reset the simulation and observe its resulting state through the Python dashboard.</_text>
+				<_text type="a">Allows the ScenarioOperator to start, pause and reset the intersection simulation through the Python dashboard. SmartIntersectionCore executes the simulation by advancing its simulation clock, controlling traffic-signal phases and timing, and updating vehicle and pedestrian agents according to the defined right-of-way rules. The system provides simulation status and state information to the dashboard during execution.</_text>
 			</IDescription>
 			</_description>
-			<_modifiedTime type="a">11.20.2026::13:47:24</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::17:23:1</_modifiedTime>
 			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<_itsStateChart type="r">
@@ -182,7 +148,6 @@
 			</_EntryPoints>
 			<AggregatesList type="e">
 				<value>GUID 12249363-1658-4ae6-979e-e0c14653d4de</value>
-				<value>GUID 31aa7092-acff-4ee3-bad8-e7dbbdae47a4</value>
 			</AggregatesList>
 		</IUseCase>
 		<IAssociationEnd type="e">
@@ -214,39 +179,10 @@
 			<_linkType type="a">Assoc</_linkType>
 			<_navigability type="a">Navigable</_navigability>
 		</IAssociationEnd>
-		<IAssociationEnd type="e">
-			<_id type="a">GUID 31aa7092-acff-4ee3-bad8-e7dbbdae47a4</_id>
-			<_myState type="a">10240</_myState>
-			<_name type="a">itsPythonDashboard</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:34:56</_modifiedTime>
-			<_multiplicity type="a">1</_multiplicity>
-			<_otherClass type="r">
-				<IClassifierHandle type="e">
-					<_hm2Class type="a">IActor</_hm2Class>
-					<_hfilename type="a">.\Actors.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases::Actors</_hsubsystem>
-					<_hname type="a">PythonDashboard</_hname>
-					<_hid type="a">GUID 4b09d18a-5363-402d-9321-421fe13adc4d</_hid>
-				</IClassifierHandle>
-			</_otherClass>
-			<_inverse type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IAssociationEnd</_hm2Class>
-					<_hfilename type="a">.\Actors.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases::Actors</_hsubsystem>
-					<_hclass type="a">PythonDashboard</_hclass>
-					<_hname type="a">itsRunIntersection</_hname>
-					<_hid type="a">GUID 38d5dce6-041b-4180-9294-e30d9527a331</_hid>
-				</IHandle>
-			</_inverse>
-			<_linkType type="a">Assoc</_linkType>
-			<_navigability type="a">Navigable</_navigability>
-		</IAssociationEnd>
 		<IUseCase type="e">
 			<_id type="a">GUID 4ef234ce-e29b-454b-a9e0-6eda7a127aac</_id>
 			<_myState type="a">8192</_myState>
-			<_name type="a">InterpretObservation</_name>
+			<_name type="a">SubmitPerceptionDetections</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
@@ -257,7 +193,11 @@
 					<_hid type="a">GUID 06bad11e-61a6-4b2e-b608-bf5f9ac9ef78</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::13:35:34</_modifiedTime>
+			<_description type="p"><IDescription type="e">
+				<_text type="a">Allows the MLPerceptionService to submit time-stamped perception detections to SmartIntersectionCore. The input may include detected person, vehicle or traffic-light classes, estimated traffic-light indications, confidence values and optional location information. SmartIntersectionCore processes the received perception input and may return acknowledgements or diagnostic information. This interaction represents a planned extension of the Smart Intersection simulation.</_text>
+			</IDescription>
+			</_description>
+			<_modifiedTime type="a">11.20.2026::17:25:29</_modifiedTime>
 			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<_itsStateChart type="r">
@@ -278,7 +218,7 @@
 			<_myState type="a">10240</_myState>
 			<_name type="a">itsMLPerceptionService</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:35:34</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::17:15:35</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -295,7 +235,7 @@
 					<_hfilename type="a">.\Actors.sbsx</_hfilename>
 					<_hsubsystem type="a">UseCases::Actors</_hsubsystem>
 					<_hclass type="a">MLPerceptionService</_hclass>
-					<_hname type="a">itsInterpretObservation</_hname>
+					<_hname type="a">itsSubmitPerceptionDetections</_hname>
 					<_hid type="a">GUID 2018664b-e2c0-4ddb-b369-39a2c50a010f</_hid>
 				</IHandle>
 			</_inverse>
@@ -316,7 +256,11 @@
 					<_hid type="a">GUID 06bad11e-61a6-4b2e-b608-bf5f9ac9ef78</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::13:35:1</_modifiedTime>
+			<_description type="p"><IDescription type="e">
+				<_text type="a">Allows the ScenarioOperator to inspect the current state of the intersection simulation through the Python dashboard. SmartIntersectionCore provides simulation time, traffic-signal states, vehicle and pedestrian positions and states, relevant metrics, and simulation events. This information enables the operator to monitor the simulation and understand its behaviour during execution.</_text>
+			</IDescription>
+			</_description>
+			<_modifiedTime type="a">11.20.2026::17:24:13</_modifiedTime>
 			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<_itsStateChart type="r">
@@ -330,7 +274,6 @@
 			</_EntryPoints>
 			<AggregatesList type="e">
 				<value>GUID 45bdfea3-e0cd-42fa-be4d-1f33453454ed</value>
-				<value>GUID 368bd0f0-8c63-4a0d-bc81-18c285d611c1</value>
 			</AggregatesList>
 		</IUseCase>
 		<IAssociationEnd type="e">
@@ -362,39 +305,10 @@
 			<_linkType type="a">Assoc</_linkType>
 			<_navigability type="a">Navigable</_navigability>
 		</IAssociationEnd>
-		<IAssociationEnd type="e">
-			<_id type="a">GUID 368bd0f0-8c63-4a0d-bc81-18c285d611c1</_id>
-			<_myState type="a">10240</_myState>
-			<_name type="a">itsPythonDashboard</_name>
-			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:35:1</_modifiedTime>
-			<_multiplicity type="a">1</_multiplicity>
-			<_otherClass type="r">
-				<IClassifierHandle type="e">
-					<_hm2Class type="a">IActor</_hm2Class>
-					<_hfilename type="a">.\Actors.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases::Actors</_hsubsystem>
-					<_hname type="a">PythonDashboard</_hname>
-					<_hid type="a">GUID 4b09d18a-5363-402d-9321-421fe13adc4d</_hid>
-				</IClassifierHandle>
-			</_otherClass>
-			<_inverse type="r">
-				<IHandle type="e">
-					<_hm2Class type="a">IAssociationEnd</_hm2Class>
-					<_hfilename type="a">.\Actors.sbsx</_hfilename>
-					<_hsubsystem type="a">UseCases::Actors</_hsubsystem>
-					<_hclass type="a">PythonDashboard</_hclass>
-					<_hname type="a">itsInspectTelemetry</_hname>
-					<_hid type="a">GUID 4d634445-ba01-4663-a6ea-1fa7eb5edf2d</_hid>
-				</IHandle>
-			</_inverse>
-			<_linkType type="a">Assoc</_linkType>
-			<_navigability type="a">Navigable</_navigability>
-		</IAssociationEnd>
 		<IUseCase type="e">
 			<_id type="a">GUID eeed1376-cb2f-405a-8893-f13e0ee7787b</_id>
 			<_myState type="a">8192</_myState>
-			<_name type="a">EvaluateTestRun</_name>
+			<_name type="a">ExecuteTestRun</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
 			<_theMainDiagram type="r">
 				<IHandle type="e">
@@ -405,7 +319,11 @@
 					<_hid type="a">GUID 06bad11e-61a6-4b2e-b608-bf5f9ac9ef78</_hid>
 				</IHandle>
 			</_theMainDiagram>
-			<_modifiedTime type="a">11.20.2026::13:35:28</_modifiedTime>
+			<_description type="p"><IDescription type="e">
+				<_text type="a">Allows the ScenarioTestHarness to execute a repeatable intersection simulation scenario by providing initial geometry, routes, scenario inputs, test stimuli and a random seed when applicable. SmartIntersectionCore executes the simulation and provides trace data, events, observed states and run identifiers for subsequent analysis.</_text>
+			</IDescription>
+			</_description>
+			<_modifiedTime type="a">11.20.2026::17:18:19</_modifiedTime>
 			<weakCGTime type="a">1.2.1990::0:0:0</weakCGTime>
 			<strongCGTime type="a">1.2.1990::0:0:0</strongCGTime>
 			<_itsStateChart type="r">
@@ -426,7 +344,7 @@
 			<_myState type="a">10240</_myState>
 			<_name type="a">itsScenarioTestHarness</_name>
 			<_modifiedTimeWeak type="a">1.2.1990::0:0:0</_modifiedTimeWeak>
-			<_modifiedTime type="a">11.20.2026::13:35:28</_modifiedTime>
+			<_modifiedTime type="a">11.20.2026::17:17:29</_modifiedTime>
 			<_multiplicity type="a">1</_multiplicity>
 			<_otherClass type="r">
 				<IClassifierHandle type="e">
@@ -443,7 +361,7 @@
 					<_hfilename type="a">.\Actors.sbsx</_hfilename>
 					<_hsubsystem type="a">UseCases::Actors</_hsubsystem>
 					<_hclass type="a">ScenarioTestHarness</_hclass>
-					<_hname type="a">itsEvaluateTestRun</_hname>
+					<_hname type="a">itsExecuteTestRun</_hname>
 					<_hid type="a">GUID 2385bc8c-459e-4278-8f9a-f8bb0947eedf</_hid>
 				</IHandle>
 			</_inverse>
