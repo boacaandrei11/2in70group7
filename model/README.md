@@ -26,7 +26,7 @@ Status as of Milestone 2: ✅ = in the model, 🔄 = defined in the repo, loaded
 ```
 SmartIntersection
 ├── Requirements
-│   └── SystemRequirements      🔄 containment tree SIS_Requirements → FUN / NFR / ODD →
+│   └── SystemRequirements      ✅ containment tree SIS_Requirements → FUN / NFR / ODD →
 │                               groups → 27 EARS requirements, diagrams RD0–RD7.
 │                               Load with tools/requirements/rhapsody_import.py
 ├── UseCases                    ✅ ConfigureScenario, RunIntersection, InspectTelemetry,

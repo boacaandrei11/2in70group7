@@ -24,13 +24,14 @@ is an **executable SysML model in IBM Rhapsody**. A separate Python dashboard le
 operator configure scenarios and watch the model run, but never decides anything itself.
 
 **Quick links:** [Milestone 1 report (PDF)](docs/milestones/milestone-1.pdf) ·
+[Milestone 2 report (PDF)](docs/milestones/milestone-2.pdf) · [Requirements](docs/requirements.md) ·
 [Design decisions](docs/decisions/) · [Development backlog](https://github.com/boacaandrei11/2in70group7/issues) ·
 [Questions for feedback](#9-points-for-feedback)
 
 > [!NOTE]
-> **Project status (Week 2, Milestone 2):** the Rhapsody project has the course package
-> structure, the system context BDD and the system use case diagram; 27 EARS system
-> requirements are defined and loaded into the model by script. Behaviour (state machines)
+> **Project status (Week 2):** Milestone 2 submitted. The Rhapsody project has the course
+> package structure, the system context BDD, the system use case diagram and 27 EARS
+> system requirements with containment, «refine» links and requirement diagrams. Behaviour (state machines)
 > and the dashboard are **not implemented yet**. Diagrams on this page describe the intended
 > design and are marked *planned* where relevant.
 
@@ -219,7 +220,7 @@ Each gate must work before the next one starts. Status is updated as work lands.
 | Week | Course topic | Planned model content |
 |---|---|---|
 | 1 | Context, SysML basics | system context, SOI, ODD — **Milestone 1 ✅** |
-| 2 | Requirements engineering | use case and requirements diagrams with IDs — **Milestone 2** 🔄 |
+| 2 | Requirements engineering | use case and requirements diagrams with IDs — **Milestone 2 ✅** |
 | 3 | Process, safety, testing | test specification traced to requirements |
 | 4 | Embedded / cyber-physical, state machines | signal, vehicle and pedestrian state machines; sequence diagrams |
 | 5 | Software architecture | BDD / IBD, ports and interfaces, allocation |
