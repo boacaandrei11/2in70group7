@@ -1,6 +1,6 @@
 # Rhapsody diagram exports
 
-PNG exports of the Rhapsody diagrams, used in the Overleaf report. The model is the
+PNG exports of the Rhapsody diagrams, used in the Overleaf report and on the project page (README) and in `docs/requirements.md`. The model is the
 source; re-export after a model change. Name each file after its diagram:
 
 | File | Diagram (package) |

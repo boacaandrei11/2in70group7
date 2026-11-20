@@ -138,6 +138,8 @@ def render_md(data):
     containers = {c["id"]: c for c in data["containers"]}
     order = ["SIG", "RUN", "AGT", "SV", "OBS", "NFR", "ODD"]
     out.append("## Requirement structure (containment)\n")
+    if (ROOT / "docs" / "diagrams" / "rhapsody" / "RD0_RequirementStructure.png").exists():
+        out.append("<img src=\"diagrams/rhapsody/RD0_RequirementStructure.png\" alt=\"RD0\" width=\"100%\">\n")
     out.append("```")
     out.append("SIS  System requirements (SmartIntersectionCore)")
     tops = ["FUN", "NFR", "ODD"]
@@ -157,6 +159,11 @@ def render_md(data):
     for g in order:
         c = containers[g]
         out.append(f"## {g} — {c['title']}\n")
+        rd = {"SIG": "RD1_SignalControl", "RUN": "RD2_ScenarioAndRunControl", "AGT": "RD3_RoadUserBehaviour",
+              "SV": "RD4_SmartVehicle", "OBS": "RD5_TelemetryAndEvaluation", "NFR": "RD6_NonFunctional",
+              "ODD": "RD7_OperationalDesignDomain"}[g]
+        if (ROOT / "docs" / "diagrams" / "rhapsody" / f"{rd}.png").exists():
+            out.append(f"<img src=\"diagrams/rhapsody/{rd}.png\" alt=\"{rd}\" width=\"100%\">\n")
         out.append("| ID | EARS | Requirement | Rationale | Source | Prio | Verif. | Refined by |")
         out.append("|---|---|---|---|---|---|---|---|")
         for r in [x for x in data["requirements"] if x["parent"] == g]:

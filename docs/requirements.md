@@ -44,6 +44,8 @@
 
 ## Requirement structure (containment)
 
+<img src="diagrams/rhapsody/RD0_RequirementStructure.png" alt="RD0" width="100%">
+
 ```
 SIS  System requirements (SmartIntersectionCore)
 ├── FUN  Functional requirements
@@ -58,6 +60,8 @@ SIS  System requirements (SmartIntersectionCore)
 
 ## SIG — Traffic signal control
 
+<img src="diagrams/rhapsody/RD1_SignalControl.png" alt="RD1_SignalControl" width="100%">
+
 | ID | EARS | Requirement | Rationale | Source | Prio | Verif. | Refined by |
 |---|---|---|---|---|---|---|---|
 | **SIG-01** | Ubiquitous | The system shall switch the vehicle signals in the repeating sequence N/S green, N/S amber, all-red, E/W green, E/W amber, all-red. | This is the signal plan of the ODD: two mutually exclusive movement groups, separated by amber and all-red. | Road authority; conventional drivers | M | Test | UC2 |
@@ -66,6 +70,8 @@ SIS  System requirements (SmartIntersectionCore)
 | **SIG-04** | Event-driven | When a pedestrian agent requests to cross, the system shall show walk on that crossing within one signal cycle. | Pedestrians get a guaranteed crossing opportunity without disturbing the vehicle phase sequence. | Pedestrians; conflict C2 | S | Analysis | UC2 |
 
 ## RUN — Scenario and run control
+
+<img src="diagrams/rhapsody/RD2_ScenarioAndRunControl.png" alt="RD2_ScenarioAndRunControl" width="100%">
 
 | ID | EARS | Requirement | Rationale | Source | Prio | Verif. | Refined by |
 |---|---|---|---|---|---|---|---|
@@ -78,6 +84,8 @@ SIS  System requirements (SmartIntersectionCore)
 
 ## AGT — Road-user behaviour
 
+<img src="diagrams/rhapsody/RD3_RoadUserBehaviour.png" alt="RD3_RoadUserBehaviour" width="100%">
+
 | ID | EARS | Requirement | Rationale | Source | Prio | Verif. | Refined by |
 |---|---|---|---|---|---|---|---|
 | **AGT-01** | Ubiquitous | The system shall update the position and speed of every agent once per simulation step. | Agent motion belongs to the model, not to the dashboard, and advances in the same steps as the signals. | Course team | M | Test | UC2 |
@@ -87,12 +95,16 @@ SIS  System requirements (SmartIntersectionCore)
 
 ## SV — Smart-vehicle perception and decision
 
+<img src="diagrams/rhapsody/RD4_SmartVehicle.png" alt="RD4_SmartVehicle" width="100%">
+
 | ID | EARS | Requirement | Rationale | Source | Prio | Verif. | Refined by |
 |---|---|---|---|---|---|---|---|
 | **SV-01** | Ubiquitous | The system shall base every stop, yield or proceed decision of the smart vehicle on its observations instead of on the simulated ground truth. | The smart vehicle behaves like a real automated vehicle, and errors between observation and reality become visible and testable. | Smart-vehicle developers; occupants; conflict C4 | M | Inspection | UC2 |
 | **SV-02** | Unwanted behaviour | If the smart vehicle has no observation of its signal, then the system shall treat that signal as red for the smart vehicle. | Fail-safe: the smart vehicle never drives on a green it has not seen. | Occupants; pedestrians; check T5; conflict C4 | S | Test | UC2 |
 
 ## OBS — Telemetry and evaluation
+
+<img src="diagrams/rhapsody/RD5_TelemetryAndEvaluation.png" alt="RD5_TelemetryAndEvaluation" width="100%">
 
 | ID | EARS | Requirement | Rationale | Source | Prio | Verif. | Refined by |
 |---|---|---|---|---|---|---|---|
@@ -102,6 +114,8 @@ SIS  System requirements (SmartIntersectionCore)
 
 ## NFR — Non-functional requirements
 
+<img src="diagrams/rhapsody/RD6_NonFunctional.png" alt="RD6_NonFunctional" width="100%">
+
 | ID | EARS | Requirement | Rationale | Source | Prio | Verif. | Refined by |
 |---|---|---|---|---|---|---|---|
 | **NFR-01** | Ubiquitous | The system shall produce identical run logs for any two runs of the same scenario with the same random seed. | A difference between two runs can then only come from the parameter that was changed. | Operator; course team; check T4; conflict C3 | M | Test | UC4 |
@@ -109,6 +123,8 @@ SIS  System requirements (SmartIntersectionCore)
 | **NFR-03** | Unwanted behaviour | If the system receives a message that does not conform to the interface specification, then the system shall discard the message and log a diagnostic event. | Faulty input from the dashboard or the test harness must not stop or corrupt a run. | Course team; operator | S | Test | UC1, UC4 |
 
 ## ODD — Operational design domain
+
+<img src="diagrams/rhapsody/RD7_OperationalDesignDomain.png" alt="RD7_OperationalDesignDomain" width="100%">
 
 | ID | EARS | Requirement | Rationale | Source | Prio | Verif. | Refined by |
 |---|---|---|---|---|---|---|---|

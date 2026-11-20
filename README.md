@@ -99,6 +99,12 @@ test harness and the (planned) ML perception service are outside.
 
 <p align="center"><img src="docs/diagrams/system-context.svg" alt="System context diagram of SmartIntersectionCore" width="100%"></p>
 
+**In the Rhapsody model** (Milestone 2) the context is the block definition diagram
+`Structure::Context::SystemContext`: the operator is an actor, the external systems are blocks,
+and every exchange is an information flow with a named item.
+
+<p align="center"><img src="docs/diagrams/rhapsody/SystemContext.png" alt="Rhapsody BDD SystemContext" width="100%"></p>
+
 | External actor / system | Input to the SOI | Output from the SOI |
 |---|---|---|
 | Python dashboard (used by the operator) | scenario selection, requested signal durations, traffic population and speeds, start / pause / reset | command accept / reject, simulation time, signal indications, agent positions, speeds and states, events and warnings |
@@ -170,6 +176,8 @@ Because the system of interest is a **simulation**, we separate *domain* stakeho
 The system use cases are modelled in Rhapsody (`UseCases` package); each one is the goal of
 an actor outside `SmartIntersectionCore`.
 
+<p align="center"><img src="docs/diagrams/rhapsody/SmartIntersectionUseCases.png" alt="Rhapsody use case diagram" width="100%"></p>
+
 | ID | Use case | Primary actor | Actor's goal |
 |---|---|---|---|
 | UC1 | ConfigureScenario | Scenario operator | set up a scenario (demand, road users, signal timing) that the system accepts as valid |
@@ -185,6 +193,40 @@ cases: **[docs/requirements.md](docs/requirements.md)**. Example:
 
 > **SIG-02** *While* one vehicle movement group shows green or amber, the system *shall* show
 > red to the other vehicle movement group. — *main safety rule (check T1), Must, Test*
+
+**Requirement diagrams** (`Requirements::SystemRequirements`). The requirements are grouped by
+containment (⊕) into functional, non-functional and ODD requirements:
+
+<p align="center"><img src="docs/diagrams/rhapsody/RD0_RequirementStructure.png" alt="Requirement containment structure" width="100%"></p>
+
+Each group has its own diagram showing its requirements and the use cases that
+«refine» them:
+
+<details>
+<summary><b>Show the seven group diagrams (RD1–RD7)</b></summary>
+
+**RD1 – Traffic signal control**
+<img src="docs/diagrams/rhapsody/RD1_SignalControl.png" alt="RD1" width="100%">
+
+**RD2 – Scenario and run control**
+<img src="docs/diagrams/rhapsody/RD2_ScenarioAndRunControl.png" alt="RD2" width="100%">
+
+**RD3 – Road-user behaviour**
+<img src="docs/diagrams/rhapsody/RD3_RoadUserBehaviour.png" alt="RD3" width="100%">
+
+**RD4 – Smart vehicle**
+<img src="docs/diagrams/rhapsody/RD4_SmartVehicle.png" alt="RD4" width="70%">
+
+**RD5 – Telemetry and evaluation**
+<img src="docs/diagrams/rhapsody/RD5_TelemetryAndEvaluation.png" alt="RD5" width="100%">
+
+**RD6 – Non-functional**
+<img src="docs/diagrams/rhapsody/RD6_NonFunctional.png" alt="RD6" width="100%">
+
+**RD7 – Operational design domain**
+<img src="docs/diagrams/rhapsody/RD7_OperationalDesignDomain.png" alt="RD7" width="100%">
+
+</details>
 
 ---
 
