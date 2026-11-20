@@ -6,3 +6,4 @@ submission; tag the commit that added it (`milestone-N`).
 | Milestone | File | Deadline | Tag |
 |-----------|------|----------|-----|
 | 1 – Smart Intersection: Autonomous Traffic Simulation (project definition, stakeholders, context, ODD) | `milestone-1.pdf` | submitted 2026-11-13 | `milestone-1` |
+| 2 – Use cases and requirements (refined context, use cases, EARS requirements, requirement diagram) | `milestone-2.pdf` | 2026-11-20 (add PDF after submission) | `milestone-2` |

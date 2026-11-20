@@ -28,9 +28,11 @@ operator configure scenarios and watch the model run, but never decides anything
 [Questions for feedback](#9-points-for-feedback)
 
 > [!NOTE]
-> **Project status (Week 2):** design baseline. Milestone 1 is submitted; the Rhapsody
-> model and the dashboard are **not implemented yet**. Diagrams on this page describe the
-> intended design and are marked *planned* where relevant.
+> **Project status (Week 2, Milestone 2):** the Rhapsody project has the course package
+> structure, the system context BDD and the system use case diagram; 36 EARS system
+> requirements are defined and loaded into the model by script. Behaviour (state machines)
+> and the dashboard are **not implemented yet**. Diagrams on this page describe the intended
+> design and are marked *planned* where relevant.
 
 ---
 
@@ -41,7 +43,7 @@ operator configure scenarios and watch the model run, but never decides anything
 2. [System context](#2-system-context)
 3. [Operational design domain](#3-operational-design-domain)
 4. [Stakeholders and conflicts](#4-stakeholders-and-conflicts)
-5. [Requirements — WiP](#5-requirements--wip)
+5. [Use cases and requirements](#5-use-cases-and-requirements)
 6. [Project plan](#6-project-plan)
 7. [Risks](#7-risks)
 8. [Team and way of working](#8-team-and-way-of-working)
@@ -162,7 +164,26 @@ Because the system of interest is a **simulation**, we separate *domain* stakeho
 
 ---
 
-## 5. Requirements — WiP
+## 5. Use cases and requirements
+
+The system use cases are modelled in Rhapsody (`UseCases` package); each one is the goal of
+an actor outside `SmartIntersectionCore`.
+
+| ID | Use case | Primary actor | Actor's goal |
+|---|---|---|---|
+| UC1 | ConfigureScenario | Scenario operator | set up a scenario (demand, road users, signal timing) that the system accepts as valid |
+| UC2 | RunIntersection | Scenario operator | start, pause and reset a run in which road users move and signals switch safely |
+| UC3 | InspectTelemetry | Scenario operator | understand what the simulation does and why, from live state, events and metrics |
+| UC4 | ExecuteTestRun | Scenario / test harness | run a scenario repeatably and obtain traces for verification |
+| UC5 | SubmitPerceptionDetections | ML perception service *(planned)* | deliver detections to the smart vehicle and get them acknowledged |
+
+**36 system requirements** in EARS form — 23 functional, 7 non-functional, 6 ODD, of which
+5 are unwanted-behaviour (*If …, then the system shall …*) — each with ID, rationale,
+source, priority and verification method, grouped by containment and refined by the use
+cases: **[docs/requirements.md](docs/requirements.md)**. Example:
+
+> **SIG-02** *While* a vehicle movement group shows green or amber, the system *shall* show
+> red to the other vehicle movement group. — *safety invariant (check T1), Must, Test*
 
 ---
 
@@ -185,7 +206,7 @@ Each gate must work before the next one starts. Status is updated as work lands.
 
 | Gate | Evidence of completion | Status |
 |---|---|---|
-| **G1** SysML structure | course-template project with the five packages, SOI block and context BDD | ⏳ next |
+| **G1** SysML structure | course-template project with the five packages, SOI block and context BDD | ✅ |
 | **G2** Model behaviour | animated `TrafficSignalController` cycles through all phases with configured timings | ⏳ next |
 | **G3** Rhapsody → Python | a model-owned signal state is shown in Python without a local timer | planned |
 | **G4** Python → Rhapsody | a timing change is acknowledged and alters the next phase cycle | planned |
@@ -198,7 +219,7 @@ Each gate must work before the next one starts. Status is updated as work lands.
 | Week | Course topic | Planned model content |
 |---|---|---|
 | 1 | Context, SysML basics | system context, SOI, ODD — **Milestone 1 ✅** |
-| 2 | Requirements engineering | use case and requirements diagrams with IDs |
+| 2 | Requirements engineering | use case and requirements diagrams with IDs — **Milestone 2** 🔄 |
 | 3 | Process, safety, testing | test specification traced to requirements |
 | 4 | Embedded / cyber-physical, state machines | signal, vehicle and pedestrian state machines; sequence diagrams |
 | 5 | Software architecture | BDD / IBD, ports and interfaces, allocation |
@@ -370,6 +391,7 @@ machines run next to it.
 | [`protocol/`](protocol/) | draft message contract between the model and Python |
 | [`viz/`](viz/) | Python dashboard |
 | [`scenarios/`](scenarios/) · [`tests/`](tests/) | repeatable scenarios and verification test cases |
+| [`tools/`](tools/) | requirements source and Rhapsody import ([`tools/requirements/`](tools/requirements/)), diagram generators |
 | [`docs/`](docs/) | milestone submissions, diagrams (SVG + PNG for the report), decision records |
 
 Developer workflow and setup: [CONTRIBUTING.md](CONTRIBUTING.md).
