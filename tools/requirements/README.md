@@ -21,7 +21,7 @@ Workflow: edit `requirements.json` → `python tools/requirements/render.py` →
    ```
 3. Read the summary. Anything listed under *need manual work* is done by hand with §2.
 4. Check in the browser: `Requirements › SystemRequirements` holds `SIS_Requirements`
-   with 9 nested containers and 36 requirements; each use case shows its «refine»
+   with 9 nested containers and 27 requirements; each use case shows its «refine»
    dependencies under *Dependencies*.
 
 ## 2. Manual fallback (same result, by hand)

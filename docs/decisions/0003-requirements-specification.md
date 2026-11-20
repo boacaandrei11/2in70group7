@@ -14,7 +14,7 @@ stopping distance*). The requirement text is needed in three places: the Rhapsod
 ## Options
 
 - Type the requirements into Rhapsody by hand and copy them to the docs and the report —
-  three copies that drift apart, and 36 × 5 fields of manual work.
+  three copies that drift apart, and many fields of manual work.
 - Keep one machine-readable source in the repo and generate the rest — one place to edit;
   needs a small script per target.
 
@@ -28,8 +28,12 @@ stopping distance*). The requirement text is needed in three places: the Rhapsod
    vague terms (sufficient, appropriate, etc.) are not allowed; values carry SI units.
    `render.py` enforces this.
 3. **Scope.** Only requirements on the SOI. Requirements on the dashboard (usability,
-   display latency), project rules (traceability) and the platform are kept out of this
-   set. Environmental ODD conditions (daylight, dry road) stay *assumptions*, because the
+   display latency), project rules (traceability), the platform and design constraints
+   (decisions inside the Rhapsody model, animation, replaceable perception) are kept out
+   of this set; design constraints are recorded as decisions (0002). No numbers other
+   than the Milestone 1 ODD limits; behaviour parameters (e.g. braking limit) are
+   defined in the behaviour model. Lists are defined once as terms, so every requirement
+   stays singular. Environmental ODD conditions (daylight, dry road) stay *assumptions*, because the
    system cannot check or enforce them.
 4. **Ids and grouping.** `<GROUP>-NN`, groups SIG, RUN, AGT, SV, OBS (functional), NFR,
    ODD. Grouping is SysML containment (requirements nested in container requirements),
@@ -38,14 +42,13 @@ stopping distance*). The requirement text is needed in three places: the Rhapsod
    priority (MoSCoW) and verification method (Test / Analysis / Inspection /
    Demonstration) are stored in the requirement's description in Rhapsody.
 6. **«refine» direction.** From the use case to the requirement (the use case refines the
-   requirement), as in SysML and SYSMOD. Requirements that constrain the whole system
-   (NFR-03) have no refining use case; they will be traced with «satisfy» to blocks in
-   Week 5.
+   requirement), as in SysML and SYSMOD. Every requirement is refined by at least one
+   use case. UC5 (perception, planned extension) gets requirements once it is designed.
 
 ## Consequences
 
 - Requirement changes are made in the JSON and re-imported; edits made only in Rhapsody
   are overwritten on the next import.
 - Test cases (Week 3) reference the ids; every requirement keeps its id once published.
-- Proposed numeric values (4.5 m/s² amber braking, 0.5 s / 0.8 perception thresholds)
-  are marked as such and may change after the behaviour model is built.
+- v1.1 (2026-11-20) reduced the set from 36 to 27 after review; the ids were renumbered
+  once, before submission.

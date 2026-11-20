@@ -73,6 +73,8 @@ def check(data):
         if not r["rationale"].strip():
             errors.append(f"{r['id']}: missing rationale")
     for u in ucs:
+        if data["use_cases"][u].get("deferred"):
+            continue
         if not any(u in r["refined_by"] for r in data["requirements"]):
             errors.append(f"use case {u} refines no requirement")
     if not any(r["pattern"] == "Unwanted behaviour" for r in data["requirements"]):
@@ -118,7 +120,13 @@ def render_md(data):
     out.append("- **Priority (MoSCoW).** M = must, S = should, C = could.")
     out.append("- **Verification.** Test, Analysis, Inspection or Demonstration.")
     out.append("- **Source.** Stakeholder (Milestone 1, revised 16 Nov), check T1–T5 and conflict C1–C4 the requirement comes from.")
-    out.append("- **Refined by.** Use cases (UC1–UC5) that refine the requirement with «refine» in the Rhapsody model.\n")
+    out.append("- **Refined by.** Use cases that refine the requirement with «refine» in the Rhapsody model.")
+    out.append("- **Singular.** Lists (snapshot content, logged events, run metrics) are defined once below, so each requirement states one thing.\n")
+    out.append("### Definitions\n")
+    out.append("| Term | Meaning |\n|---|---|")
+    for t, m in data.get("definitions", []):
+        out.append(f"| *{t}* | {m} |")
+    out.append("")
     out.append(f"**{st['total']} requirements:** {st['kinds']['F']} functional, {st['kinds']['NF']} non-functional, "
                f"{st['kinds']['ODD']} ODD · {st['patterns']['Unwanted behaviour']} unwanted-behaviour · "
                f"{st['priority']['M']} M / {st['priority']['S']} S / {st['priority']['C']} C.\n")
@@ -163,17 +171,13 @@ def render_md(data):
     for r in data["requirements"]:
         out.append(f"| {r['id']} | " + " | ".join("●" if n in r["refined_by"] else "" for n in names) + " |")
     out.append("")
-    out.append("## Changes from draft v0.1\n")
-    out.append("- Rewritten in EARS with one *shall* each; the vague term *sufficient stopping distance* (T2) is "
-               "replaced by the measurable amber rule AGT-03 (4.5 m/s²) together with AGT-02.")
-    out.append("- ODD assumptions turned into verifiable requirements (ODD-01 … ODD-06). Daylight, dry road and "
-               "visibility stay **assumptions**: the system cannot check or enforce them.")
-    out.append("- Removed from the system requirements because they do not constrain `SmartIntersectionCore`: "
-               "dashboard usability and display latency (NF-06, NF-09 → requirements of the dashboard), "
-               "traceability (NF-12 → project rule), platform (NF-13 → project constraint), versioned schema "
-               "(NF-11 → design decision in `protocol/`).")
-    out.append("- Added: pause, single step and reset semantics (RUN-05 … RUN-07), separate ground truth (SV-02), "
-               "dashboard loss (NFR-05).")
+    out.append("## Changes in v1.1 (after internal review)\n")
+    out.append("- Fewer, sharper requirements (36 → 27); lists moved into the definitions so every requirement is singular.")
+    out.append("- No numbers that are not in Milestone 1: speed limits, braking value, perception thresholds and step length removed. "
+               "The only numbers left are the Milestone 1 ODD limits (agent counts, timing ranges).")
+    out.append("- Design constraints are not system requirements: *all decisions inside the Rhapsody model*, *animated state "
+               "machines*, *replaceable perception source*, platform and schema versioning are recorded as design decisions instead.")
+    out.append("- The planned perception extension (UC5) gets requirements once it is designed.")
     out.append("")
     return "\n".join(out)
 
@@ -225,6 +229,8 @@ def render_tex(data, outdir: Path):
             rat = tex_escape(r["rationale"]) + r" \emph{[" + tex_escape(r["source"]) + "]}"
             idcell = r"\textbf{" + r["id"] + r"}\newline{\scriptsize\emph{" + PATTERN_SHORT[r["pattern"]] + "}}"
             rows.append(f"{idcell} & {tex_ears(r['text'])} & {rat} & {r['priority']} & {r['verification']}\\\\")
+    defs = [r"\emph{" + tex_escape(t) + "} & " + tex_escape(m) + r"\\" for t, m in data.get("definitions", [])]
+    (outdir / "req_definitions_rows.tex").write_text("\n".join(defs) + "\n", encoding="utf-8")
     (outdir / "req_table_rows.tex").write_text("\n".join(rows) + "\n", encoding="utf-8")
 
     names = list(uc)

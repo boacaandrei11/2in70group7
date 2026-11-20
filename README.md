@@ -29,7 +29,7 @@ operator configure scenarios and watch the model run, but never decides anything
 
 > [!NOTE]
 > **Project status (Week 2, Milestone 2):** the Rhapsody project has the course package
-> structure, the system context BDD and the system use case diagram; 36 EARS system
+> structure, the system context BDD and the system use case diagram; 27 EARS system
 > requirements are defined and loaded into the model by script. Behaviour (state machines)
 > and the dashboard are **not implemented yet**. Diagrams on this page describe the intended
 > design and are marked *planned* where relevant.
@@ -175,15 +175,15 @@ an actor outside `SmartIntersectionCore`.
 | UC2 | RunIntersection | Scenario operator | start, pause and reset a run in which road users move and signals switch safely |
 | UC3 | InspectTelemetry | Scenario operator | understand what the simulation does and why, from live state, events and metrics |
 | UC4 | ExecuteTestRun | Scenario / test harness | run a scenario repeatably and obtain traces for verification |
-| UC5 | SubmitPerceptionDetections | ML perception service *(planned)* | deliver detections to the smart vehicle and get them acknowledged |
+| UC5 | SubmitPerceptionDetections | perception service *(planned)* | deliver observations to the smart vehicle — requirements follow when the extension is designed |
 
-**36 system requirements** in EARS form — 23 functional, 7 non-functional, 6 ODD, of which
-5 are unwanted-behaviour (*If …, then the system shall …*) — each with ID, rationale,
+**27 system requirements** in EARS form — 19 functional, 3 non-functional, 5 ODD, of which
+4 are unwanted-behaviour (*If …, then the system shall …*) — each with ID, rationale,
 source, priority and verification method, grouped by containment and refined by the use
 cases: **[docs/requirements.md](docs/requirements.md)**. Example:
 
-> **SIG-02** *While* a vehicle movement group shows green or amber, the system *shall* show
-> red to the other vehicle movement group. — *safety invariant (check T1), Must, Test*
+> **SIG-02** *While* one vehicle movement group shows green or amber, the system *shall* show
+> red to the other vehicle movement group. — *main safety rule (check T1), Must, Test*
 
 ---
 

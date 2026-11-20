@@ -1,221 +1,560 @@
 {
-  "version": "1.0",
+  "version": "1.1",
   "date": "2026-11-20",
   "system": "SmartIntersectionCore",
   "subject_note": "In every requirement, 'the system' is the system of interest, the block SmartIntersectionCore.",
   "use_cases": {
-    "ConfigureScenario": {"id": "UC1", "actor": "ScenarioOperator", "goal": "Set up a scenario (traffic demand, road users, signal timing) that the system accepts as valid."},
-    "RunIntersection": {"id": "UC2", "actor": "ScenarioOperator", "goal": "Start, pause and reset a run in which the system moves road users and switches signals safely."},
-    "InspectTelemetry": {"id": "UC3", "actor": "ScenarioOperator", "goal": "Understand what the simulation is doing and why, from live state, events and metrics."},
-    "ExecuteTestRun": {"id": "UC4", "actor": "ScenarioTestHarness", "goal": "Run a scenario repeatably and obtain traces and results for verification."},
-    "SubmitPerceptionDetections": {"id": "UC5", "actor": "MLPerceptionService", "goal": "Deliver detections to the smart vehicle and get them acknowledged (planned extension)."}
+    "ConfigureScenario": {
+      "id": "UC1",
+      "actor": "ScenarioOperator",
+      "goal": "Set up a scenario (traffic demand, road users, signal timing) that the system accepts as valid."
+    },
+    "RunIntersection": {
+      "id": "UC2",
+      "actor": "ScenarioOperator",
+      "goal": "Start, pause and reset a run in which the system moves road users and switches signals safely."
+    },
+    "InspectTelemetry": {
+      "id": "UC3",
+      "actor": "ScenarioOperator",
+      "goal": "Understand what the simulation is doing and why, from live state, events and metrics."
+    },
+    "ExecuteTestRun": {
+      "id": "UC4",
+      "actor": "ScenarioTestHarness",
+      "goal": "Run a scenario repeatably and obtain traces and results for verification."
+    },
+    "SubmitPerceptionDetections": {
+      "id": "UC5",
+      "actor": "MLPerceptionService",
+      "goal": "Deliver observations to the smart vehicle (planned extension; no requirements yet).",
+      "deferred": true
+    }
   },
   "containers": [
-    {"id": "SIS", "name": "SIS_Requirements", "parent": null,
-     "text": "The system shall fulfil the contained functional, non-functional and operational-design-domain requirements."},
-    {"id": "FUN", "name": "FUN_Functional", "parent": "SIS", "title": "Functional requirements",
-     "text": "The system shall provide the contained functions."},
-    {"id": "NFR", "name": "NFR_NonFunctional", "parent": "SIS", "title": "Non-functional requirements",
-     "text": "The system shall meet the contained quality requirements."},
-    {"id": "ODD", "name": "ODD_OperationalDesignDomain", "parent": "SIS", "title": "Operational design domain",
-     "text": "The system shall operate within the operational design domain defined in Milestone 1."},
-    {"id": "SIG", "name": "SIG_SignalControl", "parent": "FUN", "title": "Traffic signal control",
-     "text": "The system shall control the traffic signals of the intersection."},
-    {"id": "RUN", "name": "RUN_ScenarioAndRunControl", "parent": "FUN", "title": "Scenario and run control",
-     "text": "The system shall let the operator configure scenarios and control runs."},
-    {"id": "AGT", "name": "AGT_RoadUserBehaviour", "parent": "FUN", "title": "Road-user behaviour",
-     "text": "The system shall simulate the behaviour of vehicle and pedestrian agents."},
-    {"id": "SV", "name": "SV_SmartVehicle", "parent": "FUN", "title": "Smart-vehicle perception and decision",
-     "text": "The system shall model the perception-based decisions of the smart vehicle."},
-    {"id": "OBS", "name": "OBS_TelemetryAndEvaluation", "parent": "FUN", "title": "Telemetry and evaluation",
-     "text": "The system shall make the state and the results of every run observable."}
+    {
+      "id": "SIS",
+      "name": "SIS_Requirements",
+      "parent": null,
+      "text": "The system shall fulfil the contained functional, non-functional and operational-design-domain requirements."
+    },
+    {
+      "id": "FUN",
+      "name": "FUN_Functional",
+      "parent": "SIS",
+      "title": "Functional requirements",
+      "text": "The system shall provide the contained functions."
+    },
+    {
+      "id": "NFR",
+      "name": "NFR_NonFunctional",
+      "parent": "SIS",
+      "title": "Non-functional requirements",
+      "text": "The system shall meet the contained quality requirements."
+    },
+    {
+      "id": "ODD",
+      "name": "ODD_OperationalDesignDomain",
+      "parent": "SIS",
+      "title": "Operational design domain",
+      "text": "The system shall operate within the operational design domain defined in Milestone 1."
+    },
+    {
+      "id": "SIG",
+      "name": "SIG_SignalControl",
+      "parent": "FUN",
+      "title": "Traffic signal control",
+      "text": "The system shall control the traffic signals of the intersection."
+    },
+    {
+      "id": "RUN",
+      "name": "RUN_ScenarioAndRunControl",
+      "parent": "FUN",
+      "title": "Scenario and run control",
+      "text": "The system shall let the operator configure scenarios and control runs."
+    },
+    {
+      "id": "AGT",
+      "name": "AGT_RoadUserBehaviour",
+      "parent": "FUN",
+      "title": "Road-user behaviour",
+      "text": "The system shall simulate the behaviour of vehicle and pedestrian agents."
+    },
+    {
+      "id": "SV",
+      "name": "SV_SmartVehicle",
+      "parent": "FUN",
+      "title": "Smart-vehicle perception and decision",
+      "text": "The system shall make the smart vehicle decide on what it observes."
+    },
+    {
+      "id": "OBS",
+      "name": "OBS_TelemetryAndEvaluation",
+      "parent": "FUN",
+      "title": "Telemetry and evaluation",
+      "text": "The system shall make the state and the results of every run observable."
+    }
   ],
   "requirements": [
-    {"id": "SIG-01", "name": "SIG_01_PhaseSequence", "parent": "SIG", "kind": "F", "pattern": "Ubiquitous",
-     "text": "The system shall switch the vehicle signals in the repeating sequence N/S green, N/S amber, all-red, E/W green, E/W amber, all-red.",
-     "rationale": "Two mutually exclusive movement groups with amber and all-red clearance is the signal plan of the ODD; all other signal requirements assume this order.",
-     "source": "Road authority; conventional drivers", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "SIG-02", "name": "SIG_02_NoConflictingGreens", "parent": "SIG", "kind": "F", "pattern": "State-driven",
-     "text": "While a vehicle movement group shows green or amber, the system shall show red to the other vehicle movement group.",
-     "rationale": "Primary safety invariant: conflicting vehicle movements never have permission at the same time.",
-     "source": "Road authority; occupants; drivers; check T1", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "SIG-03", "name": "SIG_03_ProtectedCrossing", "parent": "SIG", "kind": "F", "pattern": "State-driven",
-     "text": "While a pedestrian crossing shows walk or pedestrian clearance, the system shall show red to every vehicle movement group that crosses it.",
-     "rationale": "Protected pedestrian permission: a pedestrian on the crossing is never in conflict with a permitted vehicle movement.",
-     "source": "Pedestrians; road authority; check T1; conflict C1", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "SIG-04", "name": "SIG_04_ServeCrossingRequest", "parent": "SIG", "kind": "F", "pattern": "Event-driven",
-     "text": "When a pedestrian agent requests to cross, the system shall show walk on that crossing in the next phase in which every vehicle movement group that crosses it shows red.",
-     "rationale": "Bounds the pedestrian waiting time to at most one signal cycle while respecting SIG-03.",
-     "source": "Pedestrians; conflict C2", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "SIG-05", "name": "SIG_05_PedestrianClearance", "parent": "SIG", "kind": "F", "pattern": "Ubiquitous",
-     "text": "The system shall give every pedestrian clearance interval a duration of at least the crossing length divided by 0.8 m/s.",
-     "rationale": "The slowest pedestrian in the ODD (0.8 m/s) can finish crossing before a conflicting vehicle movement receives green.",
-     "source": "Pedestrians; road authority; conflict C2", "priority": "M", "verification": "Analysis",
-     "refined_by": ["ConfigureScenario", "RunIntersection"]},
-
-    {"id": "RUN-01", "name": "RUN_01_LoadScenario", "parent": "RUN", "kind": "F", "pattern": "Event-driven",
-     "text": "When the system receives a load-scenario command, the system shall initialise the road geometry, agents, arrival times, timing plan and random seed from that scenario.",
-     "rationale": "All inputs that determine a run come from one scenario, which makes runs repeatable and comparable.",
-     "source": "Operator; course team; check T4", "priority": "M", "verification": "Test",
-     "refined_by": ["ConfigureScenario", "ExecuteTestRun"]},
-    {"id": "RUN-02", "name": "RUN_02_RejectInvalidTiming", "parent": "RUN", "kind": "F", "pattern": "Unwanted behaviour",
-     "text": "If a requested signal duration is outside its permitted range (green 5-60 s, amber 2-5 s, all-red 1-3 s, walk 5-30 s), then the system shall reject the request and report the permitted range.",
-     "rationale": "An out-of-range duration could create an unsafe or unrealistic plan; reporting the range lets the operator correct the request.",
-     "source": "Road authority; operator; check T3; conflict C3", "priority": "M", "verification": "Test",
-     "refined_by": ["ConfigureScenario"]},
-    {"id": "RUN-03", "name": "RUN_03_ApplyPlanAtAllRed", "parent": "RUN", "kind": "F", "pattern": "State-driven",
-     "text": "While an accepted timing plan is pending, the system shall keep the active timing plan until the next all-red interval starts.",
-     "rationale": "A timing change can then never shorten an active green, amber or pedestrian clearance interval.",
-     "source": "Road authority; pedestrians; check T3; conflict C3", "priority": "M", "verification": "Test",
-     "refined_by": ["ConfigureScenario", "RunIntersection"]},
-    {"id": "RUN-04", "name": "RUN_04_AcknowledgeCommand", "parent": "RUN", "kind": "F", "pattern": "Event-driven",
-     "text": "When the system receives an operator command, the system shall acknowledge the command as accepted, or as rejected with a reason, within one simulation step.",
-     "rationale": "The dashboard only requests changes and the model decides; an explicit acknowledgement shows the operator which value is active.",
-     "source": "Operator; conflict C3", "priority": "M", "verification": "Test",
-     "refined_by": ["ConfigureScenario", "RunIntersection"]},
-    {"id": "RUN-05", "name": "RUN_05_Reset", "parent": "RUN", "kind": "F", "pattern": "Event-driven",
-     "text": "When the system receives a reset command, the system shall restore the initial state of the loaded scenario.",
-     "rationale": "The operator can repeat a run without reloading, e.g. to compare two timing plans on the same traffic.",
-     "source": "Operator / researcher", "priority": "S", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "RUN-06", "name": "RUN_06_Pause", "parent": "RUN", "kind": "F", "pattern": "State-driven",
-     "text": "While a run is paused, the system shall keep the simulation time and the state of every signal and agent unchanged.",
-     "rationale": "Pausing freezes the whole model, so the operator can inspect a situation without the state moving on.",
-     "source": "Operator", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "RUN-07", "name": "RUN_07_SingleStep", "parent": "RUN", "kind": "F", "pattern": "Complex (state + event)",
-     "text": "While a run is paused, when the system receives a step command, the system shall advance the simulation by exactly one simulation step.",
-     "rationale": "Step-wise execution lets the team inspect each state-machine transition during debugging and the demonstration.",
-     "source": "Course team; operator", "priority": "S", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-
-    {"id": "AGT-01", "name": "AGT_01_UpdateAgents", "parent": "AGT", "kind": "F", "pattern": "Ubiquitous",
-     "text": "The system shall update the position and speed of every agent once per simulation step.",
-     "rationale": "Agent motion is owned by the model, not by the dashboard, and is consistent with the fixed time step (NFR-02).",
-     "source": "Course team", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "AGT-02", "name": "AGT_02_StopOnRed", "parent": "AGT", "kind": "F", "pattern": "State-driven",
-     "text": "While an approach shows red, the system shall keep every vehicle agent on that approach that has not passed the stop line behind the stop line.",
-     "rationale": "Red-light compliance of every vehicle, smart and conventional.",
-     "source": "Occupants; drivers; road authority; check T2; conflict C1", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "AGT-03", "name": "AGT_03_StopOnAmber", "parent": "AGT", "kind": "F", "pattern": "Event-driven",
-     "text": "When an approach changes to amber, the system shall stop every vehicle agent on that approach that can stop before the stop line with a deceleration of at most 4.5 m/s^2.",
-     "rationale": "Vehicles that can stop comfortably do so and vehicles too close to stop proceed; with amber of at least 2 s and speed of at most 8.5 m/s this makes AGT-02 achievable.",
-     "source": "Occupants (braking within limits); drivers; conflict C1", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "AGT-04", "name": "AGT_04_PedestrianStartsOnWalk", "parent": "AGT", "kind": "F", "pattern": "Ubiquitous",
-     "text": "The system shall start a pedestrian agent across a crossing only while that crossing shows walk.",
-     "rationale": "Pedestrians in the ODD comply with the signals, so their safety follows from SIG-03.",
-     "source": "Pedestrians; conflict C1", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-
-    {"id": "SV-01", "name": "SV_01_DecideOnObservation", "parent": "SV", "kind": "F", "pattern": "Ubiquitous",
-     "text": "The system shall base every stop, yield or proceed decision of the smart vehicle on the smart vehicle's observed state of signals, vehicles and pedestrians.",
-     "rationale": "Makes the perception-to-decision chain explicit and testable, as for a real automated vehicle.",
-     "source": "Smart-vehicle developers; occupants; conflict C4", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection", "SubmitPerceptionDetections"]},
-    {"id": "SV-02", "name": "SV_02_SeparateGroundTruth", "parent": "SV", "kind": "F", "pattern": "Ubiquitous",
-     "text": "The system shall store the smart vehicle's observed state separately from the simulated ground truth.",
-     "rationale": "A perception error can then be detected by comparing observation with ground truth instead of being hidden.",
-     "source": "Smart-vehicle developers; course team; conflict C4", "priority": "M", "verification": "Inspection",
-     "refined_by": ["InspectTelemetry"]},
-    {"id": "SV-03", "name": "SV_03_UncertainSignalIsRed", "parent": "SV", "kind": "F", "pattern": "Unwanted behaviour",
-     "text": "If the smart vehicle's latest observation of its signal is missing, older than 0.5 s or has a confidence below 0.8, then the system shall treat that signal as red for the smart vehicle.",
-     "rationale": "Fail-safe interpretation of uncertain perception: an unconfirmed green is never acted upon. Thresholds are proposed values.",
-     "source": "Occupants; pedestrians; check T5; conflict C4", "priority": "S", "verification": "Test",
-     "refined_by": ["SubmitPerceptionDetections", "RunIntersection"]},
-    {"id": "SV-04", "name": "SV_04_AcceptDetections", "parent": "SV", "kind": "F", "pattern": "Optional feature",
-     "text": "Where the ML perception service is connected, the system shall accept time-stamped detection events containing object class, signal indication and confidence through the perception interface.",
-     "rationale": "Enables the planned ML extension without making it a dependency of the baseline.",
-     "source": "Smart-vehicle developers; conflict C4", "priority": "C", "verification": "Test",
-     "refined_by": ["SubmitPerceptionDetections"]},
-
-    {"id": "OBS-01", "name": "OBS_01_StateSnapshot", "parent": "OBS", "kind": "F", "pattern": "Ubiquitous",
-     "text": "The system shall publish a state snapshot every simulation step containing the simulation time, the active phase, every signal indication, and the id, type, position, speed and state of every agent.",
-     "rationale": "The dashboard displays only model-owned state; a complete snapshot every step means a lost message is replaced by the next one.",
-     "source": "Operator; course team", "priority": "M", "verification": "Test",
-     "refined_by": ["InspectTelemetry", "RunIntersection"]},
-    {"id": "OBS-02", "name": "OBS_02_EventLog", "parent": "OBS", "kind": "F", "pattern": "Event-driven",
-     "text": "When a phase change, operator command, vehicle stop at a stop line, crossing request, crossing completion or safety-rule violation occurs, the system shall record a time-stamped event in the run log.",
-     "rationale": "The event log is the evidence for verification (checks T1-T4) and the basis for comparing runs.",
-     "source": "Course team; road authority", "priority": "M", "verification": "Test",
-     "refined_by": ["InspectTelemetry", "ExecuteTestRun"]},
-    {"id": "OBS-03", "name": "OBS_03_RunMetrics", "parent": "OBS", "kind": "F", "pattern": "Event-driven",
-     "text": "When a run ends, the system shall report the waiting time of every agent, the maximum queue length per arm and the number of vehicle stops.",
-     "rationale": "Quantifies the delay-versus-safety trade-off between timing plans.",
-     "source": "Operator / researcher; road authority; drivers; check T4; conflicts C1, C2", "priority": "S", "verification": "Test",
-     "refined_by": ["ExecuteTestRun", "InspectTelemetry"]},
-
-    {"id": "NFR-01", "name": "NFR_01_Reproducibility", "parent": "NFR", "kind": "NF", "category": "Reproducibility", "pattern": "Ubiquitous",
-     "text": "The system shall produce identical event logs for any two runs of the same scenario with the same random seed and timing plan.",
-     "rationale": "A difference between two runs can then be attributed to the changed parameter only.",
-     "source": "Operator; course team; check T4; conflict C3", "priority": "M", "verification": "Test",
-     "refined_by": ["ExecuteTestRun"]},
-    {"id": "NFR-02", "name": "NFR_02_FixedTimeStep", "parent": "NFR", "kind": "NF", "category": "Timing", "pattern": "Ubiquitous",
-     "text": "The system shall advance the simulation time in fixed steps of 0.1 s.",
-     "rationale": "A fixed step makes behaviour deterministic and gives 10 snapshots per simulated second for the dashboard.",
-     "source": "Course team; operator", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "NFR-03", "name": "NFR_03_ModelIsAuthority", "parent": "NFR", "kind": "NF", "category": "Authority", "pattern": "Ubiquitous",
-     "text": "The system shall take every signal, movement and right-of-way decision inside the executable Rhapsody model.",
-     "rationale": "Rhapsody is the single source of truth; external tools may only request changes, which keeps behaviour traceable to the SysML model.",
-     "source": "Course team; conflict C3", "priority": "M", "verification": "Inspection",
-     "refined_by": []},
-    {"id": "NFR-04", "name": "NFR_04_RejectMalformedMessage", "parent": "NFR", "kind": "NF", "category": "Robustness", "pattern": "Unwanted behaviour",
-     "text": "If the system receives a message that does not conform to the interface schema, then the system shall discard the message, log a diagnostic event and continue the run.",
-     "rationale": "Faulty input from the dashboard, the test harness or the ML service must not stop or corrupt the simulation.",
-     "source": "Course team; operator", "priority": "M", "verification": "Test",
-     "refined_by": ["ConfigureScenario", "ExecuteTestRun", "SubmitPerceptionDetections"]},
-    {"id": "NFR-05", "name": "NFR_05_SurviveDashboardLoss", "parent": "NFR", "kind": "NF", "category": "Robustness", "pattern": "Unwanted behaviour",
-     "text": "If the connection to the dashboard is lost during a run, then the system shall continue the run without loss of simulation state.",
-     "rationale": "The dashboard is only a viewer; closing or restarting it must not affect the run.",
-     "source": "Operator; course team", "priority": "S", "verification": "Test",
-     "refined_by": ["RunIntersection", "InspectTelemetry"]},
-    {"id": "NFR-06", "name": "NFR_06_AnimatedStates", "parent": "NFR", "kind": "NF", "category": "Observability", "pattern": "State-driven",
-     "text": "While animation is enabled, the system shall display the active state of every signal and agent state machine in Rhapsody animation.",
-     "rationale": "Makes the executable behaviour inspectable for debugging and for the live demonstration.",
-     "source": "Course team", "priority": "M", "verification": "Demonstration",
-     "refined_by": ["RunIntersection"]},
-    {"id": "NFR-07", "name": "NFR_07_ReplaceablePerception", "parent": "NFR", "kind": "NF", "category": "Modifiability", "pattern": "Ubiquitous",
-     "text": "The system shall allow the perception source of the smart vehicle to be switched between idealized and ML-based perception without modification of its decision logic.",
-     "rationale": "The decision logic is verified once with idealized input and reused unchanged with ML input.",
-     "source": "Smart-vehicle developers; conflict C4", "priority": "S", "verification": "Inspection",
-     "refined_by": ["SubmitPerceptionDetections"]},
-
-    {"id": "ODD-01", "name": "ODD_01_IntersectionGeometry", "parent": "ODD", "kind": "ODD", "pattern": "Ubiquitous",
-     "text": "The system shall represent one four-arm signalized intersection with right-hand traffic, one inbound and one outbound lane per arm, a stop line on each inbound lane and one pedestrian crossing per arm.",
-     "rationale": "Fixes the road geometry of the ODD, so that every conflict between movements is known in advance and can be checked exhaustively.",
-     "source": "Road authority; course team", "priority": "M", "verification": "Inspection",
-     "refined_by": ["ConfigureScenario"]},
-    {"id": "ODD-02", "name": "ODD_02_RoadUserPopulation", "parent": "ODD", "kind": "ODD", "pattern": "Ubiquitous",
-     "text": "The system shall simulate at most 4 vehicle agents, of which at most 1 is a smart vehicle, and at most 6 pedestrian agents at the same time.",
-     "rationale": "Enough road users for interactions between the smart vehicle, conventional vehicles and pedestrians, while keeping the state space and the test effort bounded.",
-     "source": "Course team (manageable complexity)", "priority": "M", "verification": "Test",
-     "refined_by": ["ConfigureScenario", "RunIntersection"]},
-    {"id": "ODD-03", "name": "ODD_03_StraightThroughOnly", "parent": "ODD", "kind": "ODD", "pattern": "Ubiquitous",
-     "text": "The system shall move vehicle agents straight through the intersection only, without turning, overtaking or reversing.",
-     "rationale": "Limits the conflicts to the two crossing movement groups; turning movements are a planned extension.",
-     "source": "Course team; road authority", "priority": "M", "verification": "Inspection",
-     "refined_by": ["RunIntersection"]},
-    {"id": "ODD-04", "name": "ODD_04_VehicleSpeedRange", "parent": "ODD", "kind": "ODD", "pattern": "Ubiquitous",
-     "text": "The system shall keep the speed of every vehicle agent between 0 m/s and 8.5 m/s.",
-     "rationale": "8.5 m/s (about 30 km/h) is a typical urban approach speed and bounds the stopping distance used in AGT-03.",
-     "source": "Road authority; occupants", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "ODD-05", "name": "ODD_05_PedestrianSpeedRange", "parent": "ODD", "kind": "ODD", "pattern": "Ubiquitous",
-     "text": "The system shall move every pedestrian agent at a walking speed between 0.8 m/s and 1.8 m/s.",
-     "rationale": "Covers slow (vulnerable) to fast pedestrians; the lower bound sets the minimum clearance time of SIG-05.",
-     "source": "Pedestrians", "priority": "M", "verification": "Test",
-     "refined_by": ["RunIntersection"]},
-    {"id": "ODD-06", "name": "ODD_06_RejectOutOfOddScenario", "parent": "ODD", "kind": "ODD", "pattern": "Unwanted behaviour",
-     "text": "If a scenario specifies a road-user type, movement, speed or number of agents outside the limits of ODD-01 to ODD-05, then the system shall reject the scenario and report every violated limit.",
-     "rationale": "Guarantees that every run stays inside the domain for which the model is designed and verified.",
-     "source": "Road authority; operator; course team; conflict C3", "priority": "M", "verification": "Test",
-     "refined_by": ["ConfigureScenario", "ExecuteTestRun"]}
+    {
+      "id": "SIG-01",
+      "name": "SIG_01_PhaseSequence",
+      "parent": "SIG",
+      "kind": "F",
+      "pattern": "Ubiquitous",
+      "text": "The system shall switch the vehicle signals in the repeating sequence N/S green, N/S amber, all-red, E/W green, E/W amber, all-red.",
+      "rationale": "This is the signal plan of the ODD: two mutually exclusive movement groups, separated by amber and all-red.",
+      "source": "Road authority; conventional drivers",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "SIG-02",
+      "name": "SIG_02_NoConflictingGreens",
+      "parent": "SIG",
+      "kind": "F",
+      "pattern": "State-driven",
+      "text": "While one vehicle movement group shows green or amber, the system shall show red to the other vehicle movement group.",
+      "rationale": "Main safety rule: crossing traffic streams never have permission at the same time.",
+      "source": "Road authority; occupants; drivers; check T1",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "SIG-03",
+      "name": "SIG_03_ProtectedCrossing",
+      "parent": "SIG",
+      "kind": "F",
+      "pattern": "State-driven",
+      "text": "While a pedestrian crossing shows walk or clearance, the system shall show red to every vehicle movement group that crosses it.",
+      "rationale": "Pedestrians on a crossing are never in conflict with vehicles that have permission.",
+      "source": "Pedestrians; road authority; check T1; conflict C1",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "SIG-04",
+      "name": "SIG_04_ServeCrossingRequest",
+      "parent": "SIG",
+      "kind": "F",
+      "pattern": "Event-driven",
+      "text": "When a pedestrian agent requests to cross, the system shall show walk on that crossing within one signal cycle.",
+      "rationale": "Pedestrians get a guaranteed crossing opportunity without disturbing the vehicle phase sequence.",
+      "source": "Pedestrians; conflict C2",
+      "priority": "S",
+      "verification": "Analysis",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "RUN-01",
+      "name": "RUN_01_LoadScenario",
+      "parent": "RUN",
+      "kind": "F",
+      "pattern": "Event-driven",
+      "text": "When a load-scenario command is received, the system shall initialise the intersection, the agents, the timing plan and the random seed from that scenario.",
+      "rationale": "Everything that determines a run comes from one scenario, so runs can be repeated and compared.",
+      "source": "Operator; course team; check T4",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "ConfigureScenario",
+        "ExecuteTestRun"
+      ]
+    },
+    {
+      "id": "RUN-02",
+      "name": "RUN_02_RejectInvalidTiming",
+      "parent": "RUN",
+      "kind": "F",
+      "pattern": "Unwanted behaviour",
+      "text": "If a requested signal duration is outside its permitted range (green 5-60 s, amber 2-5 s, all-red 1-3 s, walk 5-30 s), then the system shall reject the request and state the permitted range.",
+      "rationale": "Out-of-range durations could make the signal plan unsafe; stating the range lets the operator correct the request. Ranges are those of the Milestone 1 ODD.",
+      "source": "Road authority; operator; check T3; conflict C3",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "ConfigureScenario"
+      ]
+    },
+    {
+      "id": "RUN-03",
+      "name": "RUN_03_ApplyPlanAtAllRed",
+      "parent": "RUN",
+      "kind": "F",
+      "pattern": "State-driven",
+      "text": "While a timing change is pending, the system shall keep the current timing plan until the next all-red interval begins.",
+      "rationale": "A timing change can never cut short a green, amber or pedestrian interval that is already running.",
+      "source": "Road authority; pedestrians; check T3; conflict C3",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "ConfigureScenario",
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "RUN-04",
+      "name": "RUN_04_AcknowledgeCommand",
+      "parent": "RUN",
+      "kind": "F",
+      "pattern": "Event-driven",
+      "text": "When an operator command is received, the system shall acknowledge it as accepted or as rejected with a reason before the next simulation step.",
+      "rationale": "The dashboard only requests changes and the model decides; the acknowledgement tells the operator what is actually in effect.",
+      "source": "Operator; conflict C3",
+      "priority": "S",
+      "verification": "Test",
+      "refined_by": [
+        "ConfigureScenario",
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "RUN-05",
+      "name": "RUN_05_Pause",
+      "parent": "RUN",
+      "kind": "F",
+      "pattern": "State-driven",
+      "text": "While a run is paused, the system shall keep the simulation time and every signal and agent state unchanged.",
+      "rationale": "The operator can look at a situation in detail without it changing.",
+      "source": "Operator",
+      "priority": "S",
+      "verification": "Demonstration",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "RUN-06",
+      "name": "RUN_06_Reset",
+      "parent": "RUN",
+      "kind": "F",
+      "pattern": "Event-driven",
+      "text": "When a reset command is received, the system shall return to the initial state of the loaded scenario.",
+      "rationale": "The operator can repeat a run, e.g. with another timing plan, without loading the scenario again.",
+      "source": "Operator / researcher",
+      "priority": "C",
+      "verification": "Test",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "AGT-01",
+      "name": "AGT_01_UpdateAgents",
+      "parent": "AGT",
+      "kind": "F",
+      "pattern": "Ubiquitous",
+      "text": "The system shall update the position and speed of every agent once per simulation step.",
+      "rationale": "Agent motion belongs to the model, not to the dashboard, and advances in the same steps as the signals.",
+      "source": "Course team",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "AGT-02",
+      "name": "AGT_02_NoEntryOnRed",
+      "parent": "AGT",
+      "kind": "F",
+      "pattern": "State-driven",
+      "text": "While an approach shows red, the system shall prevent every vehicle agent on that approach from crossing its stop line.",
+      "rationale": "Every vehicle, smart or conventional, obeys red.",
+      "source": "Occupants; drivers; road authority; check T2; conflict C1",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "AGT-03",
+      "name": "AGT_03_StopOnAmber",
+      "parent": "AGT",
+      "kind": "F",
+      "pattern": "Event-driven",
+      "text": "When an approach changes to amber, the system shall stop every vehicle agent on that approach that can stop before its stop line within its braking limit.",
+      "rationale": "Vehicles that can stop do so; vehicles too close to stop clear the intersection. The braking limit is a parameter of the vehicle model, defined in the behaviour model.",
+      "source": "Occupants; drivers; check T2; conflict C1",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "AGT-04",
+      "name": "AGT_04_PedestrianStartsOnWalk",
+      "parent": "AGT",
+      "kind": "F",
+      "pattern": "Ubiquitous",
+      "text": "The system shall start a pedestrian agent across a crossing only while that crossing shows walk.",
+      "rationale": "Pedestrians obey their signal, so together with SIG-03 they are always protected.",
+      "source": "Pedestrians; conflict C1",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "SV-01",
+      "name": "SV_01_DecideOnObservation",
+      "parent": "SV",
+      "kind": "F",
+      "pattern": "Ubiquitous",
+      "text": "The system shall base every stop, yield or proceed decision of the smart vehicle on its observations instead of on the simulated ground truth.",
+      "rationale": "The smart vehicle behaves like a real automated vehicle, and errors between observation and reality become visible and testable.",
+      "source": "Smart-vehicle developers; occupants; conflict C4",
+      "priority": "M",
+      "verification": "Inspection",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "SV-02",
+      "name": "SV_02_MissingSignalIsRed",
+      "parent": "SV",
+      "kind": "F",
+      "pattern": "Unwanted behaviour",
+      "text": "If the smart vehicle has no observation of its signal, then the system shall treat that signal as red for the smart vehicle.",
+      "rationale": "Fail-safe: the smart vehicle never drives on a green it has not seen.",
+      "source": "Occupants; pedestrians; check T5; conflict C4",
+      "priority": "S",
+      "verification": "Test",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "OBS-01",
+      "name": "OBS_01_StateSnapshot",
+      "parent": "OBS",
+      "kind": "F",
+      "pattern": "Ubiquitous",
+      "text": "The system shall publish one state snapshot per simulation step.",
+      "rationale": "The dashboard shows only state owned by the model; a full snapshot every step means a lost message is replaced by the next one.",
+      "source": "Operator; course team",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "InspectTelemetry",
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "OBS-02",
+      "name": "OBS_02_EventLog",
+      "parent": "OBS",
+      "kind": "F",
+      "pattern": "Event-driven",
+      "text": "When a logged event occurs, the system shall record it with its simulation time in the run log.",
+      "rationale": "The run log is the evidence for verification (checks T1-T4) and the basis for comparing runs.",
+      "source": "Course team; road authority",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "InspectTelemetry",
+        "ExecuteTestRun"
+      ]
+    },
+    {
+      "id": "OBS-03",
+      "name": "OBS_03_RunMetrics",
+      "parent": "OBS",
+      "kind": "F",
+      "pattern": "Event-driven",
+      "text": "When a run ends, the system shall report the run metrics.",
+      "rationale": "Makes the trade-off between delay and safety of different timing plans measurable.",
+      "source": "Operator / researcher; road authority; drivers; check T4; conflicts C1, C2",
+      "priority": "S",
+      "verification": "Test",
+      "refined_by": [
+        "ExecuteTestRun",
+        "InspectTelemetry"
+      ]
+    },
+    {
+      "id": "NFR-01",
+      "name": "NFR_01_Reproducibility",
+      "parent": "NFR",
+      "kind": "NF",
+      "pattern": "Ubiquitous",
+      "text": "The system shall produce identical run logs for any two runs of the same scenario with the same random seed.",
+      "rationale": "A difference between two runs can then only come from the parameter that was changed.",
+      "source": "Operator; course team; check T4; conflict C3",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "ExecuteTestRun"
+      ],
+      "category": "Reproducibility"
+    },
+    {
+      "id": "NFR-02",
+      "name": "NFR_02_FixedTimeStep",
+      "parent": "NFR",
+      "kind": "NF",
+      "pattern": "Ubiquitous",
+      "text": "The system shall advance the simulation time in steps of equal length.",
+      "rationale": "Equal steps make the behaviour deterministic and independent of the computer speed (needed for NFR-01).",
+      "source": "Course team",
+      "priority": "S",
+      "verification": "Inspection",
+      "refined_by": [
+        "RunIntersection"
+      ],
+      "category": "Determinism"
+    },
+    {
+      "id": "NFR-03",
+      "name": "NFR_03_RejectMalformedMessage",
+      "parent": "NFR",
+      "kind": "NF",
+      "pattern": "Unwanted behaviour",
+      "text": "If the system receives a message that does not conform to the interface specification, then the system shall discard the message and log a diagnostic event.",
+      "rationale": "Faulty input from the dashboard or the test harness must not stop or corrupt a run.",
+      "source": "Course team; operator",
+      "priority": "S",
+      "verification": "Test",
+      "refined_by": [
+        "ConfigureScenario",
+        "ExecuteTestRun"
+      ],
+      "category": "Robustness"
+    },
+    {
+      "id": "ODD-01",
+      "name": "ODD_01_IntersectionGeometry",
+      "parent": "ODD",
+      "kind": "ODD",
+      "pattern": "Ubiquitous",
+      "text": "The system shall represent one four-arm signalized intersection with right-hand traffic, one inbound and one outbound lane per arm, a stop line on each inbound lane and a pedestrian crossing on each arm.",
+      "rationale": "Fixing the layout means every conflict between road users is known in advance and can be checked completely.",
+      "source": "Road authority; course team",
+      "priority": "M",
+      "verification": "Inspection",
+      "refined_by": [
+        "ConfigureScenario"
+      ]
+    },
+    {
+      "id": "ODD-02",
+      "name": "ODD_02_VehiclePopulation",
+      "parent": "ODD",
+      "kind": "ODD",
+      "pattern": "Ubiquitous",
+      "text": "The system shall simulate at most 4 vehicle agents at the same time, one of which is the smart vehicle.",
+      "rationale": "Enough vehicles for interaction between the smart vehicle and conventional vehicles, with a bounded test effort (Milestone 1 ODD).",
+      "source": "Course team",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "ConfigureScenario",
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "ODD-03",
+      "name": "ODD_03_PedestrianPopulation",
+      "parent": "ODD",
+      "kind": "ODD",
+      "pattern": "Ubiquitous",
+      "text": "The system shall simulate at most 6 pedestrian agents at the same time.",
+      "rationale": "Enough pedestrians to load all four crossings, with a bounded test effort (Milestone 1 ODD).",
+      "source": "Pedestrians; course team",
+      "priority": "S",
+      "verification": "Test",
+      "refined_by": [
+        "ConfigureScenario",
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "ODD-04",
+      "name": "ODD_04_StraightThroughOnly",
+      "parent": "ODD",
+      "kind": "ODD",
+      "pattern": "Ubiquitous",
+      "text": "The system shall move vehicle agents straight through the intersection only, without turning, overtaking or reversing.",
+      "rationale": "Limits the conflicts to the two crossing movement groups; turning is a later extension.",
+      "source": "Course team; road authority",
+      "priority": "M",
+      "verification": "Inspection",
+      "refined_by": [
+        "RunIntersection"
+      ]
+    },
+    {
+      "id": "ODD-05",
+      "name": "ODD_05_RejectOutOfOddScenario",
+      "parent": "ODD",
+      "kind": "ODD",
+      "pattern": "Unwanted behaviour",
+      "text": "If a scenario exceeds a limit of ODD-01 to ODD-04, then the system shall reject the scenario and state the exceeded limit.",
+      "rationale": "Every run stays inside the domain for which the model is designed and verified.",
+      "source": "Road authority; operator; course team; conflict C3",
+      "priority": "M",
+      "verification": "Test",
+      "refined_by": [
+        "ConfigureScenario",
+        "ExecuteTestRun"
+      ]
+    }
+  ],
+  "definitions": [
+    [
+      "the system",
+      "the system of interest, block SmartIntersectionCore"
+    ],
+    [
+      "vehicle movement group",
+      "the vehicles of the N/S arms or of the E/W arms, which receive the same signal"
+    ],
+    [
+      "approach",
+      "the inbound lane of one arm with its stop line and vehicle signal"
+    ],
+    [
+      "walk / clearance",
+      "pedestrian signal states in which pedestrians may start / may finish crossing"
+    ],
+    [
+      "timing plan",
+      "the durations of green per group, amber, all-red and walk"
+    ],
+    [
+      "simulation step",
+      "one fixed increment of simulation time in which all signals and agents are updated"
+    ],
+    [
+      "state snapshot",
+      "simulation time, active phase, every signal indication, and id, type, position, speed and state of every agent"
+    ],
+    [
+      "logged event",
+      "phase change, operator command, vehicle stop at a stop line, crossing request, crossing completion or safety-rule violation"
+    ],
+    [
+      "run metrics",
+      "waiting time of every agent, maximum queue length per arm and number of vehicle stops"
+    ],
+    [
+      "observation",
+      "what the smart vehicle perceives of signals, vehicles and pedestrians, as opposed to the simulated ground truth"
+    ]
   ]
 }
